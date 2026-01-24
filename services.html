@@ -3,41 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - EDUSQUAD Tutoring</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
-                <span>EDUSQUAD</span>
-            </div>
-            <div class="nav-menu">
-                <a href="index.html">Home</a>
-                <a href="services.html" class="active">Services</a>
-                <a href="about.html">About</a>
-                <a href="enroll.html">Enroll</a>
-                <a href="testimonials.html">Testimonials</a>
-            </div>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Courses - EDUSQUAD</title>
     <style>
         * {
@@ -51,17 +16,130 @@
             background-color: #f8fafc;
             color: #333;
             line-height: 1.6;
-            padding: 20px;
         }
         
+        /* Navigation Styles */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #4f46e5, #3b82f6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: #4f46e5;
+            background: #f1f5f9;
+        }
+        
+        .nav-links a.active {
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 3px;
+            background: #4f46e5;
+            border-radius: 2px;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, #4f46e5, #3b82f6);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: linear-gradient(135deg, #4338ca, #2563eb);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #4b5563;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* Container & Header */
         .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin: 40px 0;
             padding: 20px;
         }
         
@@ -78,6 +156,7 @@
             margin: 0 auto;
         }
         
+        /* Courses Grid */
         .courses-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -253,16 +332,100 @@
             color: #64748b;
         }
         
+        /* Footer */
         .footer {
+            background: #1e293b;
+            color: #cbd5e1;
+            padding: 50px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo .logo {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .footer-logo .logo-text {
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #60a5fa;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-bottom {
             text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: #64748b;
-            border-top: 1px solid #e2e8f0;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #374151;
+            color: #94a3b8;
         }
         
         /* Responsive design */
         @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
             .courses-grid {
                 grid-template-columns: 1fr;
             }
@@ -279,6 +442,32 @@
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <div class="logo">E</div>
+                <div class="logo-text">EDUSQUAD</div>
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="enroll.html">Enroll</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="contact.html">Contact</a>
+                <a href="enroll.html" class="nav-btn">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
     <div class="container">
         <div class="header">
             <h1>Our Comprehensive Courses</h1>
@@ -324,7 +513,7 @@
                 <div class="course-content">
                     <h2 class="course-title">Physics</h2>
                     <p class="course-description">Comprehensive tutoring in Physics, covering mechanics, thermodynamics, electromagnetism, and modern physics. Our expert tutors simplify complex concepts for all learning styles with interactive simulations and real-world examples.</p>
-                    <a href="#" class="enroll-btn">Enroll Now →</a>
+                    <a href="enroll.html?course=physics" class="enroll-btn">Enroll Now →</a>
                 </div>
             </div>
             
@@ -339,7 +528,7 @@
                 <div class="course-content">
                     <h2 class="course-title">Chemistry</h2>
                     <p class="course-description">Engaging Chemistry lessons from foundational principles to advanced organic and inorganic chemistry. We focus on practical applications, lab simulations, and problem-solving skills.</p>
-                    <a href="#" class="enroll-btn">Enroll Now →</a>
+                    <a href="enroll.html?course=chemistry" class="enroll-btn">Enroll Now →</a>
                 </div>
             </div>
             
@@ -354,7 +543,7 @@
                 <div class="course-content">
                     <h2 class="course-title">Mathematics</h2>
                     <p class="course-description">Tailored Math tutoring for all levels, including algebra, geometry, calculus, and statistics. Build a strong mathematical foundation with EDUSQUAD through interactive problem-solving.</p>
-                    <a href="#" class="enroll-btn">Enroll Now →</a>
+                    <a href="enroll.html?course=mathematics" class="enroll-btn">Enroll Now →</a>
                 </div>
             </div>
             
@@ -369,7 +558,7 @@
                 <div class="course-content">
                     <h2 class="course-title">English Language Arts</h2>
                     <p class="course-description">Improve reading comprehension, writing skills, grammar, and literary analysis. Our English tutors help students excel in essays, presentations, and standardized tests.</p>
-                    <a href="#" class="enroll-btn">Enroll Now →</a>
+                    <a href="enroll.html?course=english" class="enroll-btn">Enroll Now →</a>
                 </div>
             </div>
             
@@ -384,7 +573,7 @@
                 <div class="course-content">
                     <h2 class="course-title">Social Studies</h2>
                     <p class="course-description">Explore history, geography, civics, and economics with our Social Studies program. Develop critical thinking about global events and societal structures through engaging multimedia content.</p>
-                    <a href="#" class="enroll-btn">Enroll Now →</a>
+                    <a href="enroll.html?course=social-studies" class="enroll-btn">Enroll Now →</a>
                 </div>
             </div>
             
@@ -399,18 +588,65 @@
                 <div class="course-content">
                     <h2 class="course-title">French Language</h2>
                     <p class="course-description">Learn French from beginner to advanced levels. Focus on conversational skills, grammar, vocabulary, and cultural understanding with native-speaking tutors.</p>
-                    <a href="#" class="enroll-btn">Enroll Now →</a>
+                    <a href="enroll.html?course=french" class="enroll-btn">Enroll Now →</a>
                 </div>
             </div>
         </div>
-        
-        <div class="footer">
-            <p>© 2026 EDUSQUAD Tutoring Services. All rights reserved.</p>
-            <p>Contact us: enroll.edusquad@gmail.com | +(234) 913 202 4610</p>
-        </div>
     </div>
-    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <div class="logo">E</div>
+                    <div class="logo-text">EDUSQUAD</div>
+                </div>
+                <p>Empowering students through personalized tutoring and innovative learning approaches since 2023.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="enroll.html">Enroll</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Contact Info</h3>
+                <p>📧 info@edusquad.com</p>
+                <p>📞 (123) 456-7890</p>
+                <p>📍 123 Education Street, Learning City</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2023 EDUSQUAD Tutoring Services. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+        
         // Add hover effect enhancement
         document.querySelectorAll('.course-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
