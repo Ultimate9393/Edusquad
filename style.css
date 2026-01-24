@@ -745,32 +745,3 @@ input, select, textarea {
 .chess .subject-link {
     color: #f1c40f;
 }
-/* Fix for content disappearing */
-.floating-elements {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -100; /* Very low z-index */
-    pointer-events: none; /* Can't click on them */
-    overflow: hidden;
-}
-
-.floating-elements div {
-    position: absolute;
-    z-index: -100;
-    opacity: 0.03; /* Very transparent */
-    filter: blur(1px); /* Soft blur effect */
-}
-
-/* Ensure all content sections have proper z-index */
-section, .container, .grade-card, .subject-detail, .approach-item {
-    position: relative;
-    z-index: 1; /* Bring content above background */
-}
-
-.navbar {
-    position: relative;
-    z-index: 1000; /* Keep navbar on top */
-}
