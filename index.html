@@ -1,236 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EDUSQUAD - Online Tutoring for Grades 1 to College</title>
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-/* Hero Section with Animated Gradient */
-.hero {
-    background: linear-gradient(270deg, #6a11cb, #2575fc, #ff6a00, #f9d423);
-    background-size: 800% 800%;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-    position: relative;
-    overflow: hidden;
-    animation: gradientAnimation 20s ease infinite;
-}
-@keyframes gradientAnimation {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-.hero h1 {
-    font-size: 3em;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeInDown 1s forwards;
-}
-.hero p {
-    font-size: 1.3em;
-    margin-bottom: 30px;
-    opacity: 0;
-    animation: fadeInUp 1s 0.5s forwards;
-}
-.hero-buttons a {
-    margin: 10px;
-    opacity: 0;
-    animation: fadeIn 1s 1s forwards;
-}
-@keyframes fadeInDown {
-    0% { opacity: 0; transform: translateY(-30px);}
-    100% { opacity: 1; transform: translateY(0);}
-}
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(30px);}
-    100% { opacity: 1; transform: translateY(0);}
-}
-@keyframes fadeIn { 0% { opacity: 0;} 100% { opacity: 1; } }
-
-/* Subjects Grid with Images and Hover Effect */
-.subjects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-.subject-card {
-    background: #f9f9f9;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-.subject-card:hover {
-    transform: scale(1.05) rotate(1deg);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-.subject-card img {
-    width: 60px;
-    margin-bottom: 15px;
-}
-
-/* Founder Section Animations */
-.founder-preview {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 30px;
-}
-.founder-text {
-    flex: 1;
-    opacity: 0;
-    animation: slideInLeft 1s forwards;
-}
-.founder-image img {
-    max-width: 100%;
-    border-radius: 15px;
-    opacity: 0;
-    animation: slideInRight 1s forwards;
-}
-@keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-50px);} 100% { opacity: 1; transform: translateX(0);} }
-@keyframes slideInRight { 0% { opacity: 0; transform: translateX(50px);} 100% { opacity: 1; transform: translateX(0);} }
-
-/* Advantages Grid Animations */
-.advantages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-.advantage-card {
-    background: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    opacity: 0;
-    animation: fadeUp 1s forwards;
-}
-.advantage-card:hover {
-    transform: translateY(-5px);
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: #fff;
-}
-@keyframes fadeUp { 0% { opacity: 0; transform: translateY(20px);} 100% { opacity: 1; transform: translateY(0);} }
-
-/* CTA Button Pulse */
-.cta-buttons a.btn-primary {
-    animation: pulse 2s infinite;
-}
-@keyframes pulse { 0% { transform: scale(1);} 50% { transform: scale(1.05);} 100% { transform: scale(1);} }
-
-/* Footer Enhancements */
-footer { background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; }
-footer a { color: #fff; transition: color 0.3s; }
-footer a:hover { color: #ffeb3b; }
-.social-icons a { margin-right: 10px; }
-.social-icons a:hover { transform: scale(1.2); }
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUSQUAD - Online Tutoring for Grades 1 to College</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<!-- Navigation (unchanged) -->
-<nav class="navbar">
-<div class="nav-container">
-<div class="logo">
-<img src="images/logo.png" alt="EDUSQUAD Logo" height="40"><span>EDUSQUAD</span>
-</div>
-<div class="nav-menu">
-<a href="index.html" class="active">Home</a>
-<a href="services.html">Services</a>
-<a href="about.html">About</a>
-<a href="enroll.html">Enroll</a>
-<a href="testimonials.html">Testimonials</a>
-</div>
-<button class="menu-toggle"><i class="fas fa-bars"></i></button>
-</div>
-</nav>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
+                <span>EDUSQUAD</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="active">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="enroll.html">Enroll</a>
+                <a href="testimonials.html">Testimonials</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
-<!-- Hero Section -->
-<section class="hero">
-<div class="hero-content">
-<h1>Unlock Your Potential.</h1>
-<p class="hero-subtitle">Join EDUSQUAD. Expert tutoring from Grade 1 to College in Physics, Maths, Chess, and more.</p>
-<div class="hero-buttons">
-<a href="enroll.html" class="btn-primary">Start Learning Now</a>
-<a href="services.html" class="btn-secondary">Explore Subjects</a>
-</div>
-<div class="hero-stats">
-<div class="stat-item">
-<i class="fas fa-chart-line"></i>
-<h3>Grades Improved</h3>
-<p>Math scores up by 30%!</p>
-</div>
-<div class="stat-item">
-<i class="fas fa-user-graduate"></i>
-<h3>Expert Tutors</h3>
-<p>Certified educators</p>
-</div>
-<div class="stat-item">
-<i class="fas fa-globe-americas"></i>
-<h3>Global Reach</h3>
-<p>Canada, US, UK, Nigeria</p>
-</div>
-</div>
-</div>
-</section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Unlock Your Potential.</h1>
+            <p class="hero-subtitle">Join EDUSQUAD. Expert tutoring from Grade 1 to College in Physics, Maths, Chess, and more.</p>
+            <div class="hero-buttons">
+                <a href="enroll.html" class="btn-primary">Start Learning Now</a>
+                <a href="services.html" class="btn-secondary">Explore Subjects</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Grades Improved</h3>
+                    <p>Math scores up by 30%!</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Expert Tutors</h3>
+                    <p>Certified educators</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Global Reach</h3>
+                    <p>Canada, US, UK, Nigeria</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Subjects Grid with Images -->
+   <!-- Color-Coded Curriculum Preview -->
 <section class="section-light">
-<div class="container">
-<h2 class="section-title">OUR CURRICULUM</h2>
-<p class="section-subtitle">Everything You Need to Excel.</p>
-<p class="center-text">We offer a comprehensive range of subjects tailored for every grade level. From the logic of Chess to the laws of Physics, we have it covered.</p>
-<a href="services.html" class="btn-outline">View Full Syllabus <i class="fas fa-arrow-right"></i></a>
-
-<div class="subjects-grid">
-<div class="subject-card">
-<img src="images/physics-icon.png" alt="Physics">
-<h3>Physics</h3>
-<p>Understanding the universe</p>
-</div>
-<div class="subject-card">
-<img src="images/chemistry-icon.png" alt="Chemistry">
-<h3>Chemistry</h3>
-<p>Reactions & matter</p>
-</div>
-<div class="subject-card">
-<img src="images/maths.png" alt="Mathematics">
-<h3>Mathematics</h3>
-<p>The language of logic</p>
-</div>
-<div class="subject-card">
-<img src="images/english.png" alt="English">
-<h3>English</h3>
-<p>Literature & grammar</p>
-</div>
-<div class="subject-card">
-<img src="images/social.png" alt="Social Studies">
-<h3>Social Studies</h3>
-<p>History & society</p>
-</div>
-<div class="subject-card">
-<img src="images/chess.png" alt="Chess">
-<h3>Chess</h3>
-<p>Strategic thinking</p>
-</div>
-</div>
-</div>
+    <div class="container">
+        <h2 class="section-title">OUR CURRICULUM</h2>
+        <p class="section-subtitle">Everything You Need to Excel.</p>
+        <p class="center-text">We offer a comprehensive range of subjects tailored for every grade level. From the logic of Chess to the laws of Physics, we have it covered.</p>
+        <a href="services.html" class="btn-outline">View Full Syllabus <i class="fas fa-arrow-right"></i></a>
+        
+        <div class="subjects-grid">
+            <!-- Physics - Blue -->
+            <div class="subject-card physics">
+                <div class="subject-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h3>Physics</h3>
+                <p>Understanding the universe</p>
+                <a href="services.html#physics" class="subject-link">Learn more →</a>
+            </div>
+            
+            <!-- Chemistry - Green -->
+            <div class="subject-card chemistry">
+                <div class="subject-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h3>Chemistry</h3>
+                <p>Reactions & matter</p>
+                <a href="services.html#chemistry" class="subject-link">Learn more →</a>
+            </div>
+            
+            <!-- Mathematics - Purple -->
+            <div class="subject-card mathematics">
+                <div class="subject-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Mathematics</h3>
+                <p>The language of logic</p>
+                <a href="services.html#mathematics" class="subject-link">Learn more →</a>
+            </div>
+            
+            <!-- English - Orange -->
+            <div class="subject-card english">
+                <div class="subject-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3>English</h3>
+                <p>Literature & grammar</p>
+                <a href="services.html#english" class="subject-link">Learn more →</a>
+            </div>
+            
+            <!-- Social Studies - Red -->
+            <div class="subject-card social-studies">
+                <div class="subject-icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>Social Studies</h3>
+                <p>History & society</p>
+                <a href="services.html#social-studies" class="subject-link">Learn more →</a>
+            </div>
+            
+            <!-- Chess - Gold -->
+            <div class="subject-card chess">
+                <div class="subject-icon">
+                    <i class="fas fa-chess"></i>
+                </div>
+                <h3>Chess</h3>
+                <p>Strategic thinking</p>
+                <a href="services.html#chess" class="subject-link">Learn more →</a>
+            </div>
+        </div>
+    </div>
 </section>
+    
+    <!-- Founder Preview -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="founder-preview">
+                <div class="founder-text">
+                    <h2>Meet the Founder</h2>
+                    <blockquote>"Education is not just about grades. It's about confidence."</blockquote>
+                    <p>At EDUSQUAD, we believe every student has the potential to excel when given the right guidance. My mission is to create a learning environment that is both rigorous and encouraging.</p>
+                    <a href="about.html" class="btn-light">Read Our Full Story</a>
+                </div>
+                <div class="founder-image">
+                    <img src="images/founder.jpg" alt="Soyinka A.S., Founder of EDUSQUAD">
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Founder, Advantages, CTA, Footer remain unchanged but now with animations as per CSS -->
+    <!-- EDUSQUAD Advantage -->
+    <section class="section-light">
+        <div class="container">
+            <h2 class="section-title">The EDUSQUAD Advantage</h2>
+            <p class="center-text">We combine traditional teaching values with modern technology to deliver an unmatched learning experience.</p>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Comprehensive Curriculum</h3>
+                    <p>From Grade 1 to College level, we cover all essential subjects with expert tutors.</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-user-cog"></i>
+                    <h3>Personalized Learning</h3>
+                    <p>One-on-one attention tailored to your child's unique learning style and pace.</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Proven Results</h3>
+                    <p>Our students consistently achieve academic excellence and build confidence.</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Expert Tutors</h3>
+                    <p>Learn from experienced educators dedicated to your child's success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join The Squad.</h2>
+            <p>Be part of a community that celebrates learning, diversity, and academic growth. Every student is a valued member of our squad.</p>
+            <div class="cta-buttons">
+                <a href="enroll.html" class="btn-primary">Enroll Your Child Today</a>
+                <a href="#contact" class="btn-light">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
+                    <h3>EDUSQUAD</h3>
+                </div>
+                <p>Empowering students from Grade 1 to College with personalized online tutoring across all subjects.</p>
+                <p class="quote">"The beautiful thing about learning is that no one can take it away from you."</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="enroll.html">Enroll Now</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Subjects We Teach</h4>
+                <ul class="subject-list">
+                    <li>Physics</li>
+                    <li>Chemistry</li>
+                    <li>Mathematics</li>
+                    <li>English</li>
+                    <li>Social Studies</li>
+                    <li>French</li>
+                    <li>Biology</li>
+                    <li>Chess</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:enroll.edusquad@gmail.com">enroll.edusquad@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i> +234 913 202 4610</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Online Tutoring Platform</li>
+                    <li><i class="fas fa-globe"></i> Serving: Canada, US, UK, Nigeria</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> EDUSQUAD Educational Consult. All rights reserved. | Founder: Soyinka A.S.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
