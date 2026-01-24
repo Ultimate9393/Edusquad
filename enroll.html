@@ -1,1 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Your Child - EDUSQUAD Tutoring</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
+                <span>EDUSQUAD</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="enroll.html" class="active">Enroll</a>
+                <a href="testimonials.html">Testimonials</a>
+            </div>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Enroll Your Child Today</h1>
+            <p>Join students from Canada, US, UK, and Nigeria achieving academic excellence</p>
+        </div>
+    </section>
+
+    <!-- Enrollment Form -->
+    <section class="section-light">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-info">
+                    <h2>Start Your Learning Journey</h2>
+                    <p>Complete this form to enroll your child in EDUSQUAD tutoring. We'll contact you within 24 hours to discuss your child's learning needs and schedule a free assessment session.</p>
+                    
+                    <div class="form-benefits">
+                        <h3><i class="fas fa-check-circle"></i> What Happens Next?</h3>
+                        <ul>
+                            <li>Free 30-minute assessment session</li>
+                            <li>Personalized learning plan created</li>
+                            <li>Match with perfect tutor</li>
+                            <li>Flexible schedule setup</li>
+                            <li>Begin learning journey</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="contact-alternative">
+                        <h3>Prefer to Call?</h3>
+                        <p><i class="fas fa-phone"></i> +234 913 202 4610</p>
+                        <p><i class="fas fa-envelope"></i> enroll.edusquad@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="form-wrapper">
+                    <form id="enrollmentForm" action="https://formspree.io/f/xbjnpblk" method="POST">
+                        <!-- Formspree will forward to your email -->
+                        <input type="hidden" name="_subject" value="New EDUSQUAD Enrollment Request">
+                        <input type="hidden" name="_replyto" value="enroll.edusquad@gmail.com">
+                        
+                        <h3>Parent/Guardian Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="parentName">Full Name *</label>
+                            <input type="text" id="parentName" name="parentName" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="parentEmail">Email Address *</label>
+                                <input type="email" id="parentEmail" name="parentEmail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="parentPhone">Phone Number *</label>
+                                <input type="tel" id="parentPhone" name="parentPhone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country">Country of Residence *</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select Country</option>
+                                <option value="Canada">Canada</option>
+                                <option value="United States">United States</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="timezone">Preferred Time Zone</label>
+                            <select id="timezone" name="timezone">
+                                <option value="">Select Time Zone</option>
+                                <option value="EST">Eastern Time (EST)</option>
+                                <option value="CST">Central Time (CST)</option>
+                                <option value="PST">Pacific Time (PST)</option>
+                                <option value="GMT">GMT (UK)</option>
+                                <option value="WAT">West Africa Time (WAT)</option>
+                            </select>
+                        </div>
+                        
+                        <h3>Student Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="studentName">Student's Full Name *</label>
+                            <input type="text" id="studentName" name="studentName" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gradeLevel">Grade Level *</label>
+                                <select id="gradeLevel" name="gradeLevel" required>
+                                    <option value="">Select Grade</option>
+                                    <option value="1-3">Grades 1-3</option>
+                                    <option value="4-6">Grades 4-6</option>
+                                    <option value="7-9">Grades 7-9</option>
+                                    <option value="10-12">Grades 10-12</option>
+                                    <option value="College">College/University</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="studentAge">Student's Age</label>
+                                <input type="number" id="studentAge" name="studentAge" min="5" max="25">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="school">Current School</label>
+                            <input type="text" id="school" name="school">
+                        </div>
+                        
+                        <h3>Tutoring Needs</h3>
+                        
+                        <div class="form-group">
+                            <label>Subjects Needed *</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="subjects" value="Physics"> Physics</label>
+                                <label><input type="checkbox" name="subjects" value="Mathematics"> Mathematics</label>
+                                <label><input type="checkbox" name="subjects" value="Chemistry"> Chemistry</label>
+                                <label><input type="checkbox" name="subjects" value="English"> English</label>
+                                <label><input type="checkbox" name="subjects" value="Social Studies"> Social Studies</label>
+                                <label><input type="checkbox" name="subjects" value="French"> French</label>
+                                <label><input type="checkbox" name="subjects" value="Biology"> Biology</label>
+                                <label><input type="checkbox" name="subjects" value="Chess"> Chess</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="goals">Learning Goals & Challenges</label>
+                            <textarea id="goals" name="goals" rows="4" placeholder="Please describe what the student hopes to achieve, any specific challenges, or areas needing improvement..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="frequency">Preferred Session Frequency</label>
+                            <select id="frequency" name="frequency">
+                                <option value="">Select Frequency</option>
+                                <option value="Once a week">Once a week</option>
+                                <option value="Twice a week">Twice a week</option>
+                                <option value="Three times a week">Three times a week</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Exam preparation">Exam preparation intensive</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="referral">How did you hear about EDUSQUAD?</label>
+                            <input type="text" id="referral" name="referral">
+                        </div>
+                        
+                        <div class="form-group terms">
+                            <label>
+                                <input type="checkbox" required>
+                                I agree to the <a href="#" class="terms-link">terms and conditions</a> and understand that I will be contacted to complete the enrollment process.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary submit-btn">
+                            <i class="fas fa-paper-plane"></i> Submit Enrollment Request
+                        </button>
+                        
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="section-dark">
+        <div class="container">
+            <h2 class="section-title">What Happens After Enrollment?</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Form Submission</h3>
+                    <p>You'll receive a confirmation email and we'll review your application.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Free Assessment</h3>
+                    <p>We'll schedule a 30-minute free assessment session with your child.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Personalized Plan</h3>
+                    <p>We create a customized learning plan based on assessment results.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Start Learning</h3>
+                    <p>Begin sessions with your matched tutor at your preferred schedule.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
+                    <h3>EDUSQUAD</h3>
+                </div>
+                <p>Questions about enrollment? Contact us directly:</p>
+                <ul class="contact-info">
+                    <li><i class="fas fa-envelope"></i> enroll.edusquad@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +234 913 202 4610</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="enroll.html">Enroll Now</a></li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> EDUSQUAD Educational Consult. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Form submission handling
+        document.getElementById('enrollmentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const submitBtn = form.querySelector('.submit-btn');
+            const messageDiv = document.getElementById('formMessage');
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success
+                    messageDiv.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Enrollment submitted successfully! We will contact you within 24 hours.</div>';
+                    form.reset();
+                    
+                    // Also send SMS notification (simulated - you'd need a proper SMS API)
+                    console.log('SMS would be sent to: +2349132024610');
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                messageDiv.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-circle"></i> There was an error submitting the form. Please try again or contact us directly.</div>';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Enrollment Request';
+                
+                // Scroll to message
+                messageDiv.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+</body>
+</html>
