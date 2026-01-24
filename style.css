@@ -1059,3 +1059,205 @@ input, select, textarea {
     .colorful.french { background: #1abc9c; }
     .colorful.biology { background: #82e0aa; }
 }
+/* ===== WHY CHOOSE EDUSQUAD WITH IMAGES ===== */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.why-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eaeaea;
+}
+
+.why-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.why-image {
+    height: 180px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.why-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+
+.why-card:hover .why-image img {
+    transform: scale(1.1);
+}
+
+.why-content {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.why-content h3 {
+    color: #1a5fb4;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.why-content p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Country Flags */
+.why-countries {
+    display: flex;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.country-flag {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.country-flag:hover {
+    transform: scale(1.2);
+}
+
+/* Stats & Features */
+.why-stats, .why-features, .why-qualifications, .why-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.why-stats span, .why-features span, .why-qualifications span, .why-tech span {
+    background: #f0f7ff;
+    color: #1a5fb4;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.why-features span {
+    background: #fff4e6;
+    color: #e67e22;
+}
+
+.why-qualifications span {
+    background: #e8f6f3;
+    color: #16a085;
+}
+
+.why-tech span {
+    background: #f4ecf7;
+    color: #8e44ad;
+}
+
+/* Results Display */
+.why-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.result-item {
+    text-align: center;
+    padding: 1rem;
+    background: linear-gradient(135deg, #1a5fb4, #2d8fff);
+    color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.result-item:hover {
+    transform: scale(1.05);
+}
+
+.result-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.result-label {
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .why-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .why-image {
+        height: 150px;
+        padding: 1.5rem;
+    }
+    
+    .why-image img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .why-content {
+        padding: 1.5rem;
+    }
+    
+    .why-results {
+        grid-template-columns: 1fr;
+    }
+    
+    .why-stats, .why-features, .why-qualifications, .why-tech {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.why-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.why-card:nth-child(2) { animation-delay: 0.1s; }
+.why-card:nth-child(3) { animation-delay: 0.2s; }
+.why-card:nth-child(4) { animation-delay: 0.3s; }
+.why-card:nth-child(5) { animation-delay: 0.4s; }
+.why-card:nth-child(6) { animation-delay: 0.5s; }
