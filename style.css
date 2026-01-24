@@ -597,3 +597,151 @@ input, select, textarea {
 .fade-in {
     animation: fadeIn 0.6s ease-out;
 }
+/* Color-Coded Subjects */
+.subject-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border-top: 4px solid transparent;
+}
+
+.subject-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.subject-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+}
+
+.subject-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.subject-card:hover .subject-link {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Physics - Blue */
+.physics {
+    border-color: #3498db;
+}
+
+.physics .subject-icon {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.physics:hover {
+    background: linear-gradient(to bottom, rgba(52, 152, 219, 0.05), white);
+}
+
+.physics .subject-link {
+    color: #3498db;
+}
+
+/* Chemistry - Green */
+.chemistry {
+    border-color: #2ecc71;
+}
+
+.chemistry .subject-icon {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+.chemistry:hover {
+    background: linear-gradient(to bottom, rgba(46, 204, 113, 0.05), white);
+}
+
+.chemistry .subject-link {
+    color: #2ecc71;
+}
+
+/* Mathematics - Purple */
+.mathematics {
+    border-color: #9b59b6;
+}
+
+.mathematics .subject-icon {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+}
+
+.mathematics:hover {
+    background: linear-gradient(to bottom, rgba(155, 89, 182, 0.05), white);
+}
+
+.mathematics .subject-link {
+    color: #9b59b6;
+}
+
+/* English - Orange */
+.english {
+    border-color: #e67e22;
+}
+
+.english .subject-icon {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+}
+
+.english:hover {
+    background: linear-gradient(to bottom, rgba(230, 126, 34, 0.05), white);
+}
+
+.english .subject-link {
+    color: #e67e22;
+}
+
+/* Social Studies - Red */
+.social-studies {
+    border-color: #e74c3c;
+}
+
+.social-studies .subject-icon {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+.social-studies:hover {
+    background: linear-gradient(to bottom, rgba(231, 76, 60, 0.05), white);
+}
+
+.social-studies .subject-link {
+    color: #e74c3c;
+}
+
+/* Chess - Gold */
+.chess {
+    border-color: #f1c40f;
+}
+
+.chess .subject-icon {
+    background: linear-gradient(135deg, #f1c40f, #f39c12);
+    box-shadow: 0 5px 15px rgba(241, 196, 15, 0.3);
+}
+
+.chess:hover {
+    background: linear-gradient(to bottom, rgba(241, 196, 15, 0.05), white);
+}
+
+.chess .subject-link {
+    color: #f1c40f;
+}
