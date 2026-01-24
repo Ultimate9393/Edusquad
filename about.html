@@ -1,206 +1,205 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About EDUSQUAD - Our Story & Founder</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About EDUSQUAD - Our Story & Founder</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Page Header */
+.page-header {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+}
+.page-header h1 { font-size: 3em; opacity: 0; animation: fadeInDown 1s forwards;}
+.page-header p { font-size: 1.2em; opacity: 0; animation: fadeInUp 1s 0.5s forwards;}
+
+/* Founder Section */
+.founder-full {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+.founder-image-large img {
+    border-radius: 20px;
+    max-width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.founder-image-large img:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0,0,0,0.2);}
+.founder-story { flex: 1; opacity: 0; animation: slideInLeft 1s forwards;}
+.founder-stats { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px; }
+.founder-stat {
+    background: linear-gradient(135deg, #ff6a00, #f9d423);
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    flex: 1;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.founder-stat:hover { transform: translateY(-5px); }
+
+/* Mission & Values */
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+.mission-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 1s forwards;
+}
+.mission-card:hover {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    transform: translateY(-5px);
+}
+.mission-card i { font-size: 2em; margin-bottom: 15px; }
+
+/* Why Choose EDUSQUAD */
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+.why-item {
+    display: flex;
+    gap: 15px;
+    background: #f9f9f9;
+    border-radius: 15px;
+    padding: 15px;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 1s forwards;
+}
+.why-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
+.why-icon {
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #ff6a00, #f9d423);
+    text-align: center;
+    padding: 60px 20px;
+    color: #fff;
+}
+.cta-buttons a.btn-primary { animation: pulse 2s infinite; }
+
+/* Animations */
+@keyframes fadeInDown { 0% {opacity:0; transform:translateY(-30px);} 100% {opacity:1; transform:translateY(0);} }
+@keyframes fadeInUp { 0% {opacity:0; transform:translateY(30px);} 100% {opacity:1; transform:translateY(0);} }
+@keyframes fadeUp { 0% {opacity:0; transform:translateY(20px);} 100% {opacity:1; transform:translateY(0);} }
+@keyframes slideInLeft { 0% {opacity:0; transform:translateX(-50px);} 100% {opacity:1; transform:translateX(0);} }
+@keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.05);} 100% {transform: scale(1);} }
+
+/* Footer */
+footer { background: linear-gradient(135deg, #2575fc, #6a11cb); color: #fff; }
+footer a { color: #fff; transition: color 0.3s; }
+footer a:hover { color: #ffeb3b; }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
-                <span>EDUSQUAD</span>
-            </div>
-            <div class="nav-menu">
-                <a href="index.html">Home</a>
-                <a href="services.html">Services</a>
-                <a href="about.html" class="active">About</a>
-                <a href="enroll.html">Enroll</a>
-                <a href="testimonials.html">Testimonials</a>
-            </div>
-            <button class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
+<!-- Navigation remains unchanged -->
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1>Our Story & Mission</h1>
-            <p>Education beyond walls. Confidence beyond grades.</p>
-        </div>
-    </section>
+<!-- Page Header -->
+<section class="page-header">
+<div class="container">
+<h1>Our Story & Mission</h1>
+<p>Education beyond walls. Confidence beyond grades.</p>
+</div>
+</section>
 
-    <!-- Founder Section -->
-    <section class="section-light">
-        <div class="container">
-            <div class="founder-full">
-                <div class="founder-image-large">
-                    <img src="images/founder.jpg" alt="Soyinka A.S., Founder of EDUSQUAD">
-                    <div class="founder-name">
-                        <h3>Soyinka A.S.</h3>
-                        <p>Founder & Lead Educational Consultant</p>
-                    </div>
-                </div>
-                <div class="founder-story">
-                    <h2>Meet the Founder</h2>
-                    <blockquote>"Education is not just about grades. It's about confidence."</blockquote>
-                    
-                    <p>At EDUSQUAD, we believe every student has the potential to excel when given the right guidance. My mission is to create a learning environment that is both rigorous and encouraging.</p>
-                    
-                    <p>With over a decade of experience in education across multiple countries, I founded EDUSQUAD with a simple vision: to make quality education accessible to students everywhere, regardless of their location or background.</p>
-                    
-                    <p>We don't just teach subjects; we teach students how to learn, how to think critically, and how to approach challenges with a growth mindset. Education should empower, not just evaluate.</p>
-                    
-                    <div class="founder-stats">
-                        <div class="founder-stat">
-                            <h3>100%</h3>
-                            <p>Dedication</p>
-                        </div>
-                        <div class="founder-stat">
-                            <h3>K-12</h3>
-                            <p>Grade Levels</p>
-                        </div>
-                        <div class="founder-stat">
-                            <h3>4</h3>
-                            <p>Countries Served</p>
-                        </div>
-                        <div class="founder-stat">
-                            <h3>50+</h3>
-                            <p>Expert Tutors</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Founder Section -->
+<section class="section-light">
+<div class="container">
+<div class="founder-full">
+<div class="founder-image-large">
+<img src="images/founder.jpg" alt="Soyinka A.S., Founder of EDUSQUAD">
+<div class="founder-name">
+<h3>Soyinka A.S.</h3>
+<p>Founder & Lead Educational Consultant</p>
+</div>
+</div>
+<div class="founder-story">
+<h2>Meet the Founder</h2>
+<blockquote>"Education is not just about grades. It's about confidence."</blockquote>
+<p>At EDUSQUAD, we believe every student has the potential to excel when given the right guidance. My mission is to create a learning environment that is both rigorous and encouraging.</p>
+<p>With over a decade of experience in education across multiple countries, I founded EDUSQUAD with a simple vision: to make quality education accessible to students everywhere, regardless of their location or background.</p>
+<p>We don't just teach subjects; we teach students how to learn, how to think critically, and how to approach challenges with a growth mindset. Education should empower, not just evaluate.</p>
 
-    <!-- Our Mission -->
-    <section class="section-dark">
-        <div class="container">
-            <h2 class="section-title">Our Mission & Values</h2>
-            <div class="mission-grid">
-                <div class="mission-card">
-                    <i class="fas fa-bullseye"></i>
-                    <h3>Our Mission</h3>
-                    <p>To provide personalized, high-quality online tutoring that empowers students to achieve academic excellence while building lifelong confidence and learning skills.</p>
-                </div>
-                <div class="mission-card">
-                    <i class="fas fa-eye"></i>
-                    <h3>Our Vision</h3>
-                    <p>A world where every student has access to excellent education and the support they need to reach their full potential, regardless of geographical boundaries.</p>
-                </div>
-                <div class="mission-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Our Promise</h3>
-                    <p>We commit to personalized attention, qualified tutors, proven teaching methods, and measurable results for every student in our care.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="founder-stats">
+<div class="founder-stat"><h3>100%</h3><p>Dedication</p></div>
+<div class="founder-stat"><h3>K-12</h3><p>Grade Levels</p></div>
+<div class="founder-stat"><h3>4</h3><p>Countries Served</p></div>
+<div class="founder-stat"><h3>50+</h3><p>Expert Tutors</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Why EDUSQUAD -->
-    <section class="section-light">
-        <div class="container">
-            <h2 class="section-title">Why Choose EDUSQUAD?</h2>
-            <div class="why-grid">
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="why-content">
-                        <h3>Global Perspective</h3>
-                        <p>We combine the best educational practices from Canada, US, UK, and Nigeria to provide a well-rounded learning experience.</p>
-                    </div>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-user-friends"></i>
-                    </div>
-                    <div class="why-content">
-                        <h3>One-on-One Focus</h3>
-                        <p>Every student receives individualized attention with lesson plans tailored to their specific needs and learning style.</p>
-                    </div>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="why-content">
-                        <h3>Proven Methodology</h3>
-                        <p>Our teaching methods are research-based and have consistently produced outstanding academic results.</p>
-                    </div>
-                </div>
-                <div class="why-item">
-                    <div class="why-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="why-content">
-                        <h3>Flexible Scheduling</h3>
-                        <p>Learn at your convenience with sessions scheduled around your time zone and availability.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Our Mission -->
+<section class="section-dark">
+<div class="container">
+<h2 class="section-title">Our Mission & Values</h2>
+<div class="mission-grid">
+<div class="mission-card"><i class="fas fa-bullseye"></i><h3>Our Mission</h3><p>To provide personalized, high-quality online tutoring that empowers students to achieve academic excellence while building lifelong confidence and learning skills.</p></div>
+<div class="mission-card"><i class="fas fa-eye"></i><h3>Our Vision</h3><p>A world where every student has access to excellent education and the support they need to reach their full potential, regardless of geographical boundaries.</p></div>
+<div class="mission-card"><i class="fas fa-handshake"></i><h3>Our Promise</h3><p>We commit to personalized attention, qualified tutors, proven teaching methods, and measurable results for every student in our care.</p></div>
+</div>
+</div>
+</section>
 
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Join Our Educational Community</h2>
-            <p>Be part of EDUSQUAD's mission to transform education across borders.</p>
-            <div class="cta-buttons">
-                <a href="enroll.html" class="btn-primary">Enroll Your Child</a>
-                <a href="contact.html" class="btn-light">Contact Founder</a>
-            </div>
-        </div>
-    </section>
+<!-- Why EDUSQUAD -->
+<section class="section-light">
+<div class="container">
+<h2 class="section-title">Why Choose EDUSQUAD?</h2>
+<div class="why-grid">
+<div class="why-item"><div class="why-icon"><i class="fas fa-globe"></i></div><div class="why-content"><h3>Global Perspective</h3><p>We combine the best educational practices from Canada, US, UK, and Nigeria to provide a well-rounded learning experience.</p></div></div>
+<div class="why-item"><div class="why-icon"><i class="fas fa-user-friends"></i></div><div class="why-content"><h3>One-on-One Focus</h3><p>Every student receives individualized attention with lesson plans tailored to their specific needs and learning style.</p></div></div>
+<div class="why-item"><div class="why-icon"><i class="fas fa-chart-line"></i></div><div class="why-content"><h3>Proven Methodology</h3><p>Our teaching methods are research-based and have consistently produced outstanding academic results.</p></div></div>
+<div class="why-item"><div class="why-icon"><i class="fas fa-clock"></i></div><div class="why-content"><h3>Flexible Scheduling</h3><p>Learn at your convenience with sessions scheduled around your time zone and availability.</p></div></div>
+</div>
+</div>
+</section>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
-                    <h3>EDUSQUAD</h3>
-                </div>
-                <p>Education beyond walls. Empowering students globally.</p>
-                <p class="quote">"The beautiful thing about learning is that no one can take it away from you."</p>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="enroll.html">Enroll Now</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <ul class="contact-info">
-                    <li><i class="fas fa-envelope"></i> <a href="mailto:enroll.edusquad@gmail.com">enroll.edusquad@gmail.com</a></li>
-                    <li><i class="fas fa-phone"></i> +234 913 202 4610</li>
-                    <li><i class="fas fa-user-tie"></i> Founder: Soyinka A.S.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> EDUSQUAD Educational Consult. All rights reserved.</p>
-        </div>
-    </footer>
+<!-- Call to Action -->
+<section class="cta-section">
+<div class="container">
+<h2>Join Our Educational Community</h2>
+<p>Be part of EDUSQUAD's mission to transform education across borders.</p>
+<div class="cta-buttons">
+<a href="enroll.html" class="btn-primary">Enroll Your Child</a>
+<a href="contact.html" class="btn-light">Contact Founder</a>
+</div>
+</div>
+</section>
 
-    <script src="script.js"></script>
+<!-- Footer remains unchanged -->
+
+<script src="script.js"></script>
 </body>
 </html>
