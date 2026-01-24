@@ -189,47 +189,6 @@
             margin-top: 1rem;
         }
         
-        /* Subject tabs improvements */
-        .subject-articles {
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .subject-articles.active {
-            display: grid;
-        }
-        
-        .article-card {
-            background: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .article-card h3 {
-            color: #1a5fb4;
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-        
-        .article-level {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 1.2rem;
-        }
-        
-        .level-badge {
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .resource-article {
@@ -283,7 +242,7 @@
                 <div class="resource-stats">
                     <div class="stat">
                         <i class="fas fa-book-open"></i>
-                        <span>20+ Articles</span>
+                        <span>12+ Articles</span>
                     </div>
                     <div class="stat">
                         <i class="fas fa-clock"></i>
@@ -305,14 +264,6 @@
                 <a href="#study-tips" class="category-link active">
                     <i class="fas fa-lightbulb"></i>
                     <span>Study Tips</span>
-                </a>
-                <a href="#exam-prep" class="category-link">
-                    <i class="fas fa-clipboard-check"></i>
-                    <span>Exam Prep</span>
-                </a>
-                <a href="#subject-articles" class="category-link">
-                    <i class="fas fa-book-open"></i>
-                    <span>Subject Guides</span>
                 </a>
                 <a href="#parent-resources" class="category-link">
                     <i class="fas fa-users"></i>
@@ -548,311 +499,6 @@
         </div>
     </section>
 
-    <!-- EXAM PREPARATION SECTION -->
-    <section class="resource-section alt-bg" id="exam-prep">
-        <div class="container">
-            <div class="section-header">
-                <h2><i class="fas fa-clipboard-check"></i> Exam Preparation Guides</h2>
-                <p>Country-specific strategies for major exams</p>
-            </div>
-            
-            <div class="exam-guides">
-                <!-- Canada Exams -->
-                <div class="exam-card">
-                    <div class="exam-header">
-                        <div class="country-flag">🇨🇦</div>
-                        <h3>Canadian Exams</h3>
-                    </div>
-                    <div class="exam-content">
-                        <h4>Ontario Curriculum</h4>
-                        <ul>
-                            <li><a class="article-link" onclick="showArticle('osslt')">Grade 10 Literacy Test Guide</a></li>
-                            <li><a class="article-link" onclick="showArticle('eqao')">Grade 9 EQAO Math Prep</a></li>
-                            <li><a class="article-link" onclick="showArticle('ontario-science')">Science Review Sheets</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- UK Exams -->
-                <div class="exam-card">
-                    <div class="exam-header">
-                        <div class="country-flag">🇬🇧</div>
-                        <h3>UK Exams</h3>
-                    </div>
-                    <div class="exam-content">
-                        <h4>GCSE Preparation</h4>
-                        <ul>
-                            <li><a class="article-link" onclick="showArticle('gcse-timetable')">GCSE Revision Timetable</a></li>
-                            <li><a class="article-link" onclick="showArticle('gcse-science')">Science GCSE Tips</a></li>
-                            <li><a class="article-link" onclick="showArticle('gcse-maths')">Maths Formula Sheet</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- US Exams -->
-                <div class="exam-card">
-                    <div class="exam-header">
-                        <div class="country-flag">🇺🇸</div>
-                        <h3>US Exams</h3>
-                    </div>
-                    <div class="exam-content">
-                        <h4>Standardized Tests</h4>
-                        <ul>
-                            <li><a class="article-link" onclick="showArticle('sat-math')">SAT Math Crash Course</a></li>
-                            <li><a class="article-link" onclick="showArticle('act-science')">ACT Science Tips</a></li>
-                            <li><a class="article-link" onclick="showArticle('ap-exams')">AP Exam Improvement</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Nigeria Exams -->
-                <div class="exam-card">
-                    <div class="exam-header">
-                        <div class="country-flag">🇳🇬</div>
-                        <h3>Nigeria Exams</h3>
-                    </div>
-                    <div class="exam-content">
-                        <h4>National Exams</h4>
-                        <ul>
-                            <li><a class="article-link" onclick="showArticle('waec-guide')">WAEC 2024 Guide</a></li>
-                            <li><a class="article-link" onclick="showArticle('jamb-prep')">JAMB CBT Strategies</a></li>
-                            <li><a class="article-link" onclick="showArticle('neco-tips')">NECO Time Management</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- ========== EXAM PREP ARTICLES ========== -->
-            
-            <!-- WAEC Guide Article -->
-            <div id="waec-guide-article" class="resource-article">
-                <div class="article-header">
-                    <h2>WAEC 2024 Guide</h2>
-                    <button class="close-article" onclick="hideArticle('waec-guide')">
-                        <i class="fas fa-times"></i> Close
-                    </button>
-                </div>
-                <div class="article-body">
-                    <p>Complete guide for West African Examinations.</p>
-                    <h3>6-Month Plan:</h3>
-                    <ul>
-                        <li>Months 1-2: Foundation</li>
-                        <li>Months 3-4: Practice</li>
-                        <li>Months 5-6: Revision</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- JAMB Prep Article -->
-            <div id="jamb-prep-article" class="resource-article">
-                <div class="article-header">
-                    <h2>JAMB CBT Strategies</h2>
-                    <button class="close-article" onclick="hideArticle('jamb-prep')">
-                        <i class="fas fa-times"></i> Close
-                    </button>
-                </div>
-                <div class="article-body">
-                    <p>Success strategies for JAMB exam.</p>
-                    <h3>CBT Tips:</h3>
-                    <ul>
-                        <li>Practice with software</li>
-                        <li>Time management</li>
-                        <li>Answer all questions</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- SAT Math Article -->
-            <div id="sat-math-article" class="resource-article">
-                <div class="article-header">
-                    <h2>SAT Math Crash Course</h2>
-                    <button class="close-article" onclick="hideArticle('sat-math')">
-                        <i class="fas fa-times"></i> Close
-                    </button>
-                </div>
-                <div class="article-body">
-                    <p>Quick improvement strategies.</p>
-                    <h3>Topics:</h3>
-                    <ul>
-                        <li>Heart of Algebra (35%)</li>
-                        <li>Problem Solving (28%)</li>
-                        <li>Advanced Math (27%)</li>
-                    </ul>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- SUBJECT GUIDES SECTION -->
-    <section class="resource-section" id="subject-articles">
-        <div class="container">
-            <div class="section-header">
-                <h2><i class="fas fa-book-open"></i> Subject-Specific Guides</h2>
-                <p>Click any subject for study strategies</p>
-            </div>
-
-            <div class="subject-tabs">
-                <button class="subject-tab active" onclick="showSubject('mathematics')">Mathematics</button>
-                <button class="subject-tab" onclick="showSubject('physics')">Physics</button>
-                <button class="subject-tab" onclick="showSubject('chemistry')">Chemistry</button>
-                <button class="subject-tab" onclick="showSubject('english')">English</button>
-                <button class="subject-tab" onclick="showSubject('science')">General Science</button>
-            </div>
-
-            <div class="subject-content">
-                <!-- Mathematics Content -->
-                <div class="subject-articles active" id="mathematics-articles">
-                    <div class="article-card">
-                        <h3><i class="fas fa-calculator"></i> Algebra Made Simple</h3>
-                        <p>Solving equations and expressions.</p>
-                        <div class="article-level">
-                            <span class="level-badge">Grades 7-10</span>
-                            <a class="article-link" onclick="showArticle('algebra-guide')">Read →</a>
-                        </div>
-                    </div>
-                    <div class="article-card">
-                        <h3><i class="fas fa-shapes"></i> Geometry Formulas</h3>
-                        <p>Essential formulas with memory techniques.</p>
-                        <div class="article-level">
-                            <span class="level-badge">All Levels</span>
-                            <a class="article-link" onclick="showArticle('geometry-guide')">Read →</a>
-                        </div>
-                    </div>
-                    <div class="article-card">
-                        <h3><i class="fas fa-chart-line"></i> Calculus for Beginners</h3>
-                        <p>Introduction to derivatives and integrals.</p>
-                        <div class="article-level">
-                            <span class="level-badge">Grades 11-12</span>
-                            <a class="article-link" onclick="showArticle('calculus-guide')">Read →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Physics Articles -->
-                <div class="subject-articles" id="physics-articles">
-                    <div class="article-card">
-                        <h3><i class="fas fa-atom"></i> Newton's Laws</h3>
-                        <p>Understanding motion and forces.</p>
-                        <div class="article-level">
-                            <span class="level-badge">Grades 9-11</span>
-                            <a class="article-link" onclick="showArticle('newton-laws')">Read →</a>
-                        </div>
-                    </div>
-                    <div class="article-card">
-                        <h3><i class="fas fa-bolt"></i> Electricity Basics</h3>
-                        <p>Circuits, voltage, and current.</p>
-                        <div class="article-level">
-                            <span class="level-badge">Grades 10-12</span>
-                            <a class="article-link" onclick="showArticle('electricity')">Read →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chemistry Articles -->
-                <div class="subject-articles" id="chemistry-articles">
-                    <div class="article-card">
-                        <h3><i class="fas fa-flask"></i> Periodic Table</h3>
-                        <p>Elements and their properties.</p>
-                        <div class="article-level">
-                            <span class="level-badge">Grades 8-10</span>
-                            <a class="article-link" onclick="showArticle('periodic-table')">Read →</a>
-                        </div>
-                    </div>
-                    <div class="article-card">
-                        <h3><i class="fas fa-vial"></i> Chemical Reactions</h3>
-                        <p>Balancing equations and types.</p>
-                        <div class="article-level">
-                            <span class="level-badge">Grades 9-11</span>
-                            <a class="article-link" onclick="showArticle('chemical-reactions')">Read →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- English Articles -->
-                <div class="subject-articles" id="english-articles">
-                    <div class="article-card">
-                        <h3><i class="fas fa-pen-fancy"></i> Essay Writing</h3>
-                        <p>Structure and argument development.</p>
-                        <div class="article-level">
-                            <span class="level-badge">All Levels</span>
-                            <a class="article-link" onclick="showArticle('essay-writing')">Read →</a>
-                        </div>
-                    </div>
-                    <div class="article-card">
-                        <h3><i class="fas fa-book"></i> Literature Analysis</h3>
-                        <p>Themes, characters, and symbols.</p>
-                        <div class="article-level">
-                            <span class="level-badge">Grades 9-12</span>
-                            <a class="article-link" onclick="showArticle('literature-analysis')">Read →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Science Articles -->
-                <div class="subject-articles" id="science-articles">
-                    <div class="article-card">
-                        <h3><i class="fas fa-dna"></i> Biology Basics</h3>
-                        <p>Cells, genetics, and ecosystems.</p>
-                        <div class="article-level">
-                            <span class="level-badge">Grades 7-9</span>
-                            <a class="article-link" onclick="showArticle('biology-basics')">Read →</a>
-                        </div>
-                    </div>
-                    <div class="article-card">
-                        <h3><i class="fas fa-globe-americas"></i> Earth Science</h3>
-                        <p>Rocks, weather, and climate.</p>
-                        <div class="article-level">
-                            <span class="level-badge">Grades 6-8</span>
-                            <a class="article-link" onclick="showArticle('earth-science')">Read →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- ========== SUBJECT ARTICLES ========== -->
-            
-            <!-- Algebra Article -->
-            <div id="algebra-guide-article" class="resource-article">
-                <div class="article-header">
-                    <h2>Algebra Made Simple</h2>
-                    <button class="close-article" onclick="hideArticle('algebra-guide')">
-                        <i class="fas fa-times"></i> Close
-                    </button>
-                </div>
-                <div class="article-body">
-                    <p>Step-by-step equation solving.</p>
-                    <h3>Basic Concepts:</h3>
-                    <ul>
-                        <li>Variables and expressions</li>
-                        <li>Solving equations</li>
-                        <li>Common patterns</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Geometry Article -->
-            <div id="geometry-guide-article" class="resource-article">
-                <div class="article-header">
-                    <h2>Geometry Formulas</h2>
-                    <button class="close-article" onclick="hideArticle('geometry-guide')">
-                        <i class="fas fa-times"></i> Close
-                    </button>
-                </div>
-                <div class="article-body">
-                    <p>Essential formulas and applications.</p>
-                    <h3>Key Areas:</h3>
-                    <ul>
-                        <li>Area and perimeter</li>
-                        <li>Volume formulas</li>
-                        <li>Theorems and proofs</li>
-                    </ul>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
     <!-- PARENT RESOURCES SECTION -->
     <section class="resource-section alt-bg" id="parent-resources">
         <div class="container">
@@ -1018,9 +664,8 @@
                 <div class="footer-section">
                     <h3>Free Resources</h3>
                     <a href="resources.html">Study Tips</a>
-                    <a href="resources.html">Exam Guides</a>
-                    <a href="resources.html">Templates</a>
                     <a href="resources.html">Parent Resources</a>
+                    <a href="resources.html">Templates</a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1054,7 +699,7 @@
                 link.classList.remove('active');
             });
             
-            // Add active class to clicked link (if possible to identify)
+            // Add active class to clicked link
             event.target.classList.add('active');
         }
         
@@ -1070,27 +715,6 @@
             allLinks.forEach(link => {
                 link.classList.remove('active');
             });
-        }
-        
-        // Show subject content
-        function showSubject(subjectId) {
-            // Update active tab
-            const allTabs = document.querySelectorAll('.subject-tab');
-            allTabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Show selected subject articles
-            const allSubjects = document.querySelectorAll('.subject-articles');
-            allSubjects.forEach(subject => {
-                subject.classList.remove('active');
-            });
-            
-            const subject = document.getElementById(subjectId + '-articles');
-            if (subject) {
-                subject.classList.add('active');
-            }
         }
         
         // Category navigation
