@@ -9,6 +9,248 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Resource Content Display Styles */
+        .resource-article {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #1a5fb4;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .resource-article.active {
+            display: block;
+        }
+        
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .article-header h2 {
+            color: #1a5fb4;
+            margin: 0;
+            flex-grow: 1;
+        }
+        
+        .close-article {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .close-article:hover {
+            background: #c0392b;
+        }
+        
+        .article-body {
+            line-height: 1.7;
+            color: #333;
+        }
+        
+        .article-body h3 {
+            color: #1a5fb4;
+            margin: 1.5rem 0 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .article-body h4 {
+            color: #2c3e50;
+            margin: 1.2rem 0 0.8rem;
+        }
+        
+        .article-body ol, .article-body ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+        
+        .article-body li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .article-body p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 4px solid #1a5fb4;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-box {
+            background: #fff8e1;
+            border-left: 4px solid #f1c40f;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .download-box {
+            background: #e8f6f3;
+            border-left: 4px solid #2ecc71;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .download-link {
+            display: inline-block;
+            background: #2ecc71;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .download-link:hover {
+            background: #27ae60;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Resource link styling */
+        .resource-link, .article-link {
+            cursor: pointer;
+            color: #1a5fb4;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .resource-link:hover, .article-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Active link state */
+        .resource-link.active, .article-link.active {
+            color: #e74c3c;
+        }
+
+        /* Parent Resources Styles */
+        .parent-resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .parent-resource-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .parent-resource-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .parent-resource-card h3 {
+            color: #1a5fb4;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .parent-resource-card ul {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+        
+        .parent-resource-card li {
+            margin-bottom: 0.8rem;
+            color: #555;
+        }
+        
+        .parent-resource-card .article-link {
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        
+        /* Subject tabs improvements */
+        .subject-articles {
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .subject-articles.active {
+            display: grid;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .article-card h3 {
+            color: #1a5fb4;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .article-level {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.2rem;
+        }
+        
+        .level-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .resource-article {
+                padding: 1.5rem;
+            }
+            
+            .article-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .close-article {
+                align-self: flex-end;
+            }
+            
+            .parent-resource-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -37,19 +279,19 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Free Educational Resources</h1>
-                <p class="hero-subtitle">Expert study tips, exam guides, subject insights, and parent resources to support your child's academic journey.</p>
+                <p class="hero-subtitle">Click any resource below to read the complete article instantly</p>
                 <div class="resource-stats">
                     <div class="stat">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>50+ Free Resources</span>
+                        <i class="fas fa-book-open"></i>
+                        <span>20+ Articles</span>
                     </div>
                     <div class="stat">
                         <i class="fas fa-clock"></i>
-                        <span>Updated Monthly</span>
+                        <span>3-8 Minute Reads</span>
                     </div>
                     <div class="stat">
                         <i class="fas fa-download"></i>
-                        <span>Free Downloads</span>
+                        <span>Free Templates</span>
                     </div>
                 </div>
             </div>
@@ -80,16 +322,17 @@
         </div>
     </section>
 
-    <!-- Study Tips Section -->
+    <!-- STUDY TIPS SECTION -->
     <section class="resource-section" id="study-tips">
         <div class="container">
             <div class="section-header">
                 <h2><i class="fas fa-lightbulb"></i> Study Tips & Strategies</h2>
-                <p>Proven techniques to improve learning efficiency and retention</p>
+                <p>Click any tip below to read the complete guide</p>
             </div>
             
+            <!-- Resource Links Grid -->
             <div class="resources-grid">
-                <!-- Tip 1 -->
+                <!-- Pomodoro Method -->
                 <div class="resource-card">
                     <div class="resource-icon">
                         <i class="fas fa-brain"></i>
@@ -97,16 +340,15 @@
                     <div class="resource-content">
                         <span class="resource-tag">Technique</span>
                         <h3>The Pomodoro Method</h3>
-                        <p>25-minute focused study sessions with 5-minute breaks. Proven to increase concentration by 40%.</p>
+                        <p>25-minute focused sessions with short breaks.</p>
                         <div class="resource-meta">
                             <span><i class="fas fa-clock"></i> 5 min read</span>
-                            <span><i class="fas fa-chart-line"></i> Beginner</span>
                         </div>
-                        <a href="#" class="resource-link">Read Full Guide →</a>
+                        <a class="resource-link" onclick="showArticle('pomodoro')">Read Guide →</a>
                     </div>
                 </div>
 
-                <!-- Tip 2 -->
+                <!-- Active Recall -->
                 <div class="resource-card">
                     <div class="resource-icon">
                         <i class="fas fa-highlighter"></i>
@@ -114,16 +356,15 @@
                     <div class="resource-content">
                         <span class="resource-tag">Memory</span>
                         <h3>Active Recall Practice</h3>
-                        <p>Test yourself instead of re-reading. Studies show 50% better retention compared to passive review.</p>
+                        <p>Test yourself instead of re-reading notes.</p>
                         <div class="resource-meta">
                             <span><i class="fas fa-clock"></i> 7 min read</span>
-                            <span><i class="fas fa-chart-line"></i> All Levels</span>
                         </div>
-                        <a href="#" class="resource-link">Read Full Guide →</a>
+                        <a class="resource-link" onclick="showArticle('recall')">Read Guide →</a>
                     </div>
                 </div>
 
-                <!-- Tip 3 -->
+                <!-- Note Taking -->
                 <div class="resource-card">
                     <div class="resource-icon">
                         <i class="fas fa-sticky-note"></i>
@@ -131,16 +372,15 @@
                     <div class="resource-content">
                         <span class="resource-tag">Organization</span>
                         <h3>Effective Note-Taking</h3>
-                        <p>Cornell method vs. mind mapping. Choose the right system for different subjects.</p>
+                        <p>Cornell method vs. mind mapping.</p>
                         <div class="resource-meta">
                             <span><i class="fas fa-clock"></i> 8 min read</span>
-                            <span><i class="fas fa-chart-line"></i> Beginner</span>
                         </div>
-                        <a href="#" class="resource-link">Read Full Guide →</a>
+                        <a class="resource-link" onclick="showArticle('notes')">Read Guide →</a>
                     </div>
                 </div>
 
-                <!-- Tip 4 -->
+                <!-- Study Schedule -->
                 <div class="resource-card">
                     <div class="resource-icon">
                         <i class="fas fa-calendar-alt"></i>
@@ -148,18 +388,15 @@
                     <div class="resource-content">
                         <span class="resource-tag">Planning</span>
                         <h3>Study Schedule Template</h3>
-                        <p>Download our weekly planner to balance schoolwork, tutoring, and free time effectively.</p>
+                        <p>Weekly planner for schoolwork balance.</p>
                         <div class="resource-meta">
                             <span><i class="fas fa-download"></i> Free PDF</span>
-                            <span><i class="fas fa-file-pdf"></i> 2 pages</span>
                         </div>
-                        <a href="#" class="resource-link download-link">
-                            <i class="fas fa-download"></i> Download Template
-                        </a>
+                        <a class="resource-link" onclick="showArticle('schedule')">Get Template →</a>
                     </div>
                 </div>
 
-                <!-- Tip 5 -->
+                <!-- Sleep & Study -->
                 <div class="resource-card">
                     <div class="resource-icon">
                         <i class="fas fa-bed"></i>
@@ -167,16 +404,15 @@
                     <div class="resource-content">
                         <span class="resource-tag">Wellness</span>
                         <h3>Sleep & Study Connection</h3>
-                        <p>How proper sleep improves memory consolidation and problem-solving skills by 30%.</p>
+                        <p>How sleep improves memory retention.</p>
                         <div class="resource-meta">
                             <span><i class="fas fa-clock"></i> 6 min read</span>
-                            <span><i class="fas fa-heart"></i> Health</span>
                         </div>
-                        <a href="#" class="resource-link">Read Full Guide →</a>
+                        <a class="resource-link" onclick="showArticle('sleep')">Read Guide →</a>
                     </div>
                 </div>
 
-                <!-- Tip 6 -->
+                <!-- Digital Distraction -->
                 <div class="resource-card">
                     <div class="resource-icon">
                         <i class="fas fa-ban"></i>
@@ -184,24 +420,140 @@
                     <div class="resource-content">
                         <span class="resource-tag">Focus</span>
                         <h3>Digital Distraction Solutions</h3>
-                        <p>App blockers, focus timers, and environment setup to minimize phone/social media interference.</p>
+                        <p>App blockers and focus timers.</p>
                         <div class="resource-meta">
                             <span><i class="fas fa-clock"></i> 10 min read</span>
-                            <span><i class="fas fa-mobile-alt"></i> Tech</span>
                         </div>
-                        <a href="#" class="resource-link">Read Full Guide →</a>
+                        <a class="resource-link" onclick="showArticle('distraction')">Read Guide →</a>
                     </div>
                 </div>
             </div>
+            
+            <!-- ========== STUDY TIP ARTICLES ========== -->
+            
+            <!-- Pomodoro Article -->
+            <div id="pomodoro-article" class="resource-article">
+                <div class="article-header">
+                    <h2>The Pomodoro Technique</h2>
+                    <button class="close-article" onclick="hideArticle('pomodoro')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>25-minute focused sessions with 5-minute breaks.</p>
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Choose one task</li>
+                        <li>Set 25-minute timer</li>
+                        <li>Focus on task only</li>
+                        <li>Take 5-minute break</li>
+                        <li>Repeat 4 times</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Active Recall Article -->
+            <div id="recall-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Active Recall Practice</h2>
+                    <button class="close-article" onclick="hideArticle('recall')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Test yourself instead of re-reading.</p>
+                    <h3>Methods:</h3>
+                    <ul>
+                        <li>Blank page test</li>
+                        <li>Flashcards</li>
+                        <li>Self-questioning</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Note-Taking Article -->
+            <div id="notes-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Effective Note-Taking</h2>
+                    <button class="close-article" onclick="hideArticle('notes')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Choose method based on subject.</p>
+                    <h3>Cornell System:</h3>
+                    <p>Best for lectures and textbooks.</p>
+                    <h3>Mind Mapping:</h3>
+                    <p>Best for creative subjects and connections.</p>
+                </div>
+            </div>
+            
+            <!-- Study Schedule Article -->
+            <div id="schedule-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Study Schedule Template</h2>
+                    <button class="close-article" onclick="hideArticle('schedule')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Balance schoolwork and free time.</p>
+                    <div class="download-box">
+                        <h4>Free Study Schedule Template</h4>
+                        <a href="#" class="download-link">
+                            <i class="fas fa-download"></i> Download Template
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sleep & Study Article -->
+            <div id="sleep-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Sleep & Study Connection</h2>
+                    <button class="close-article" onclick="hideArticle('sleep')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Sleep improves memory by 30%.</p>
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>8-10 hours for teens</li>
+                        <li>No screens before bed</li>
+                        <li>Consistent sleep schedule</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Digital Distraction Article -->
+            <div id="distraction-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Digital Distraction Solutions</h2>
+                    <button class="close-article" onclick="hideArticle('distraction')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Regain focus from digital distractions.</p>
+                    <h3>Apps:</h3>
+                    <ul>
+                        <li>Forest (focus timer)</li>
+                        <li>Freedom (website blocker)</li>
+                        <li>StayFocusd (Chrome extension)</li>
+                    </ul>
+                </div>
+            </div>
+            
         </div>
     </section>
 
-    <!-- Exam Preparation Section -->
+    <!-- EXAM PREPARATION SECTION -->
     <section class="resource-section alt-bg" id="exam-prep">
         <div class="container">
             <div class="section-header">
                 <h2><i class="fas fa-clipboard-check"></i> Exam Preparation Guides</h2>
-                <p>Country-specific exam strategies and study plans</p>
+                <p>Country-specific strategies for major exams</p>
             </div>
             
             <div class="exam-guides">
@@ -214,14 +566,9 @@
                     <div class="exam-content">
                         <h4>Ontario Curriculum</h4>
                         <ul>
-                            <li><a href="#">Grade 10 Literacy Test (OSSLT) Guide</a></li>
-                            <li><a href="#">Grade 9 EQAO Math Preparation</a></li>
-                            <li><a href="#">Ontario Science Review Sheets</a></li>
-                        </ul>
-                        <h4>Provincial Exams</h4>
-                        <ul>
-                            <li><a href="#">BC Provincial Exam Strategies</a></li>
-                            <li><a href="#">Quebec Ministry Exams Tips</a></li>
+                            <li><a class="article-link" onclick="showArticle('osslt')">Grade 10 Literacy Test Guide</a></li>
+                            <li><a class="article-link" onclick="showArticle('eqao')">Grade 9 EQAO Math Prep</a></li>
+                            <li><a class="article-link" onclick="showArticle('ontario-science')">Science Review Sheets</a></li>
                         </ul>
                     </div>
                 </div>
@@ -235,14 +582,9 @@
                     <div class="exam-content">
                         <h4>GCSE Preparation</h4>
                         <ul>
-                            <li><a href="#">GCSE Revision Timetable (8-week)</a></li>
-                            <li><a href="#">Science GCSE Practical Tips</a></li>
-                            <li><a href="#">Maths GCSE Formula Sheet</a></li>
-                        </ul>
-                        <h4>A-Levels</h4>
-                        <ul>
-                            <li><a href="#">A-Level Study Schedule</a></li>
-                            <li><a href="#">Extended Essay Guide</a></li>
+                            <li><a class="article-link" onclick="showArticle('gcse-timetable')">GCSE Revision Timetable</a></li>
+                            <li><a class="article-link" onclick="showArticle('gcse-science')">Science GCSE Tips</a></li>
+                            <li><a class="article-link" onclick="showArticle('gcse-maths')">Maths Formula Sheet</a></li>
                         </ul>
                     </div>
                 </div>
@@ -256,14 +598,9 @@
                     <div class="exam-content">
                         <h4>Standardized Tests</h4>
                         <ul>
-                            <li><a href="#">SAT Math Crash Course</a></li>
-                            <li><a href="#">ACT Science Reasoning Tips</a></li>
-                            <li><a href="#">AP Exam Score Calculator</a></li>
-                        </ul>
-                        <h4>High School</h4>
-                        <ul>
-                            <li><a href="#">Final Exam Study Plan</a></li>
-                            <li><a href="#">Midterm Preparation Guide</a></li>
+                            <li><a class="article-link" onclick="showArticle('sat-math')">SAT Math Crash Course</a></li>
+                            <li><a class="article-link" onclick="showArticle('act-science')">ACT Science Tips</a></li>
+                            <li><a class="article-link" onclick="showArticle('ap-exams')">AP Exam Improvement</a></li>
                         </ul>
                     </div>
                 </div>
@@ -277,299 +614,513 @@
                     <div class="exam-content">
                         <h4>National Exams</h4>
                         <ul>
-                            <li><a href="#">WAEC 2024 Syllabus Breakdown</a></li>
-                            <li><a href="#">JAMB Past Questions (2018-2023)</a></li>
-                            <li><a href="#">NECO Time Management Guide</a></li>
-                        </ul>
-                        <h4>Preparation</h4>
-                        <ul>
-                            <li><a href="#">3-Month WAEC Study Plan</a></li>
-                            <li><a href="#">JAMB CBT Practice Tests</a></li>
+                            <li><a class="article-link" onclick="showArticle('waec-guide')">WAEC 2024 Guide</a></li>
+                            <li><a class="article-link" onclick="showArticle('jamb-prep')">JAMB CBT Strategies</a></li>
+                            <li><a class="article-link" onclick="showArticle('neco-tips')">NECO Time Management</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-
-            <!-- Free Download -->
-            <div class="download-banner">
-                <div class="banner-content">
-                    <h3><i class="fas fa-gift"></i> Free Exam Prep Kit</h3>
-                    <p>Get our complete exam preparation package including study schedules, formula sheets, and past paper guides.</p>
-                    <a href="#" class="btn-primary">
-                        <i class="fas fa-download"></i> Download Free Kit
-                    </a>
+            
+            <!-- ========== EXAM PREP ARTICLES ========== -->
+            
+            <!-- WAEC Guide Article -->
+            <div id="waec-guide-article" class="resource-article">
+                <div class="article-header">
+                    <h2>WAEC 2024 Guide</h2>
+                    <button class="close-article" onclick="hideArticle('waec-guide')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
                 </div>
-                <div class="banner-image">
-                    <i class="fas fa-file-alt"></i>
+                <div class="article-body">
+                    <p>Complete guide for West African Examinations.</p>
+                    <h3>6-Month Plan:</h3>
+                    <ul>
+                        <li>Months 1-2: Foundation</li>
+                        <li>Months 3-4: Practice</li>
+                        <li>Months 5-6: Revision</li>
+                    </ul>
                 </div>
             </div>
+            
+            <!-- JAMB Prep Article -->
+            <div id="jamb-prep-article" class="resource-article">
+                <div class="article-header">
+                    <h2>JAMB CBT Strategies</h2>
+                    <button class="close-article" onclick="hideArticle('jamb-prep')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Success strategies for JAMB exam.</p>
+                    <h3>CBT Tips:</h3>
+                    <ul>
+                        <li>Practice with software</li>
+                        <li>Time management</li>
+                        <li>Answer all questions</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- SAT Math Article -->
+            <div id="sat-math-article" class="resource-article">
+                <div class="article-header">
+                    <h2>SAT Math Crash Course</h2>
+                    <button class="close-article" onclick="hideArticle('sat-math')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Quick improvement strategies.</p>
+                    <h3>Topics:</h3>
+                    <ul>
+                        <li>Heart of Algebra (35%)</li>
+                        <li>Problem Solving (28%)</li>
+                        <li>Advanced Math (27%)</li>
+                    </ul>
+                </div>
+            </div>
+            
         </div>
     </section>
 
-    <!-- Subject-Specific Articles -->
+    <!-- SUBJECT GUIDES SECTION -->
     <section class="resource-section" id="subject-articles">
         <div class="container">
             <div class="section-header">
                 <h2><i class="fas fa-book-open"></i> Subject-Specific Guides</h2>
-                <p>In-depth articles for each subject we teach</p>
+                <p>Click any subject for study strategies</p>
             </div>
 
             <div class="subject-tabs">
-                <button class="subject-tab active" data-subject="mathematics">Mathematics</button>
-                <button class="subject-tab" data-subject="physics">Physics</button>
-                <button class="subject-tab" data-subject="chemistry">Chemistry</button>
-                <button class="subject-tab" data-subject="english">English</button>
-                <button class="subject-tab" data-subject="science">Science</button>
+                <button class="subject-tab active" onclick="showSubject('mathematics')">Mathematics</button>
+                <button class="subject-tab" onclick="showSubject('physics')">Physics</button>
+                <button class="subject-tab" onclick="showSubject('chemistry')">Chemistry</button>
+                <button class="subject-tab" onclick="showSubject('english')">English</button>
+                <button class="subject-tab" onclick="showSubject('science')">General Science</button>
             </div>
 
             <div class="subject-content">
                 <!-- Mathematics Content -->
-                <div class="subject-articles active" id="mathematics">
+                <div class="subject-articles active" id="mathematics-articles">
                     <div class="article-card">
                         <h3><i class="fas fa-calculator"></i> Algebra Made Simple</h3>
-                        <p>Step-by-step guide to solving equations, factoring, and algebraic expressions. Includes practice problems with solutions.</p>
+                        <p>Solving equations and expressions.</p>
                         <div class="article-level">
                             <span class="level-badge">Grades 7-10</span>
-                            <a href="#" class="article-link">Read Article →</a>
+                            <a class="article-link" onclick="showArticle('algebra-guide')">Read →</a>
                         </div>
                     </div>
                     <div class="article-card">
-                        <h3><i class="fas fa-shapes"></i> Geometry Formulas Cheat Sheet</h3>
-                        <p>All essential geometry formulas for area, volume, and angles. Printable reference sheet available.</p>
+                        <h3><i class="fas fa-shapes"></i> Geometry Formulas</h3>
+                        <p>Essential formulas with memory techniques.</p>
                         <div class="article-level">
                             <span class="level-badge">All Levels</span>
-                            <a href="#" class="article-link download-link"><i class="fas fa-download"></i> Download PDF</a>
+                            <a class="article-link" onclick="showArticle('geometry-guide')">Read →</a>
                         </div>
                     </div>
                     <div class="article-card">
-                        <h3><i class="fas fa-chart-line"></i> Calculus Basics for Beginners</h3>
-                        <p>Introduction to derivatives and integrals with real-world applications. Perfect for advanced high school students.</p>
+                        <h3><i class="fas fa-chart-line"></i> Calculus for Beginners</h3>
+                        <p>Introduction to derivatives and integrals.</p>
                         <div class="article-level">
                             <span class="level-badge">Grades 11-12</span>
-                            <a href="#" class="article-link">Read Article →</a>
+                            <a class="article-link" onclick="showArticle('calculus-guide')">Read →</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Physics Content (hidden by default) -->
-                <div class="subject-articles" id="physics">
-                    <!-- Physics articles would go here -->
+                <!-- Physics Articles -->
+                <div class="subject-articles" id="physics-articles">
+                    <div class="article-card">
+                        <h3><i class="fas fa-atom"></i> Newton's Laws</h3>
+                        <p>Understanding motion and forces.</p>
+                        <div class="article-level">
+                            <span class="level-badge">Grades 9-11</span>
+                            <a class="article-link" onclick="showArticle('newton-laws')">Read →</a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <h3><i class="fas fa-bolt"></i> Electricity Basics</h3>
+                        <p>Circuits, voltage, and current.</p>
+                        <div class="article-level">
+                            <span class="level-badge">Grades 10-12</span>
+                            <a class="article-link" onclick="showArticle('electricity')">Read →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chemistry Articles -->
+                <div class="subject-articles" id="chemistry-articles">
+                    <div class="article-card">
+                        <h3><i class="fas fa-flask"></i> Periodic Table</h3>
+                        <p>Elements and their properties.</p>
+                        <div class="article-level">
+                            <span class="level-badge">Grades 8-10</span>
+                            <a class="article-link" onclick="showArticle('periodic-table')">Read →</a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <h3><i class="fas fa-vial"></i> Chemical Reactions</h3>
+                        <p>Balancing equations and types.</p>
+                        <div class="article-level">
+                            <span class="level-badge">Grades 9-11</span>
+                            <a class="article-link" onclick="showArticle('chemical-reactions')">Read →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- English Articles -->
+                <div class="subject-articles" id="english-articles">
+                    <div class="article-card">
+                        <h3><i class="fas fa-pen-fancy"></i> Essay Writing</h3>
+                        <p>Structure and argument development.</p>
+                        <div class="article-level">
+                            <span class="level-badge">All Levels</span>
+                            <a class="article-link" onclick="showArticle('essay-writing')">Read →</a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <h3><i class="fas fa-book"></i> Literature Analysis</h3>
+                        <p>Themes, characters, and symbols.</p>
+                        <div class="article-level">
+                            <span class="level-badge">Grades 9-12</span>
+                            <a class="article-link" onclick="showArticle('literature-analysis')">Read →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Science Articles -->
+                <div class="subject-articles" id="science-articles">
+                    <div class="article-card">
+                        <h3><i class="fas fa-dna"></i> Biology Basics</h3>
+                        <p>Cells, genetics, and ecosystems.</p>
+                        <div class="article-level">
+                            <span class="level-badge">Grades 7-9</span>
+                            <a class="article-link" onclick="showArticle('biology-basics')">Read →</a>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <h3><i class="fas fa-globe-americas"></i> Earth Science</h3>
+                        <p>Rocks, weather, and climate.</p>
+                        <div class="article-level">
+                            <span class="level-badge">Grades 6-8</span>
+                            <a class="article-link" onclick="showArticle('earth-science')">Read →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
+            <!-- ========== SUBJECT ARTICLES ========== -->
+            
+            <!-- Algebra Article -->
+            <div id="algebra-guide-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Algebra Made Simple</h2>
+                    <button class="close-article" onclick="hideArticle('algebra-guide')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Step-by-step equation solving.</p>
+                    <h3>Basic Concepts:</h3>
+                    <ul>
+                        <li>Variables and expressions</li>
+                        <li>Solving equations</li>
+                        <li>Common patterns</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Geometry Article -->
+            <div id="geometry-guide-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Geometry Formulas</h2>
+                    <button class="close-article" onclick="hideArticle('geometry-guide')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Essential formulas and applications.</p>
+                    <h3>Key Areas:</h3>
+                    <ul>
+                        <li>Area and perimeter</li>
+                        <li>Volume formulas</li>
+                        <li>Theorems and proofs</li>
+                    </ul>
+                </div>
+            </div>
+            
         </div>
     </section>
 
-    <!-- Parent Resources -->
+    <!-- PARENT RESOURCES SECTION -->
     <section class="resource-section alt-bg" id="parent-resources">
         <div class="container">
             <div class="section-header">
                 <h2><i class="fas fa-users"></i> Parent Resources</h2>
-                <p>Tools and guides to support your child's education</p>
+                <p>Support your child's academic journey</p>
             </div>
-
-            <div class="parent-resources">
-                <div class="parent-card">
-                    <div class="parent-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>How to Talk About School</h3>
-                    <p>Conversation starters and questions that go beyond "How was school today?" to genuinely understand your child's academic experience.</p>
-                    <a href="#" class="resource-link">Download Conversation Guide →</a>
+            
+            <div class="parent-resource-grid">
+                <div class="parent-resource-card">
+                    <h3>Homework Support Strategies</h3>
+                    <p>How to help without doing the work.</p>
+                    <ul>
+                        <li>Creating study space</li>
+                        <li>Time management help</li>
+                        <li>Motivation techniques</li>
+                    </ul>
+                    <a class="article-link" onclick="showArticle('homework-support')">Read Guide →</a>
                 </div>
-
-                <div class="parent-card">
-                    <div class="parent-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Screen Time Balance</h3>
-                    <p>Healthy digital habits for students. Research-based recommendations for study time vs. leisure screen time.</p>
-                    <a href="#" class="resource-link">Read Research Summary →</a>
+                
+                <div class="parent-resource-card">
+                    <h3>Monitoring Screen Time</h3>
+                    <p>Balancing technology use.</p>
+                    <ul>
+                        <li>Healthy limits</li>
+                        <li>Educational apps</li>
+                        <li>Family agreements</li>
+                    </ul>
+                    <a class="article-link" onclick="showArticle('screen-time')">Read Guide →</a>
                 </div>
-
-                <div class="parent-card">
-                    <div class="parent-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Partnering with Teachers</h3>
-                    <p>Effective communication strategies for parent-teacher meetings and ongoing collaboration with educators.</p>
-                    <a href="#" class="resource-link">Get Meeting Template →</a>
+                
+                <div class="parent-resource-card">
+                    <h3>Exam Stress Management</h3>
+                    <p>Support during test periods.</p>
+                    <ul>
+                        <li>Reducing anxiety</li>
+                        <li>Healthy routines</li>
+                        <li>Communication tips</li>
+                    </ul>
+                    <a class="article-link" onclick="showArticle('exam-stress')">Read Guide →</a>
                 </div>
-
-                <div class="parent-card">
-                    <div class="parent-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Managing Academic Stress</h3>
-                    <p>Recognizing signs of burnout and implementing healthy stress-management techniques for students.</p>
-                    <a href="#" class="resource-link">Download Stress Guide →</a>
-                </div>
-
-                <div class="parent-card">
-                    <div class="parent-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>College Preparation Timeline</h3>
-                    <p>Year-by-year checklist from Grade 9 through Grade 12 for university/college preparation across all four countries.</p>
-                    <a href="#" class="resource-link">Get Timeline PDF →</a>
-                </div>
-
-                <div class="parent-card">
-                    <div class="parent-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <h3>Education Budget Planner</h3>
-                    <p>Template to plan for tutoring, extracurricular activities, and educational resources throughout the school year.</p>
-                    <a href="#" class="resource-link download-link">
-                        <i class="fas fa-download"></i> Download Budget Sheet
-                    </a>
+                
+                <div class="parent-resource-card">
+                    <h3>Tutoring Decision Guide</h3>
+                    <p>When and how to get extra help.</p>
+                    <ul>
+                        <li>Signs your child needs help</li>
+                        <li>Choosing the right tutor</li>
+                        <li>Setting expectations</li>
+                    </ul>
+                    <a class="article-link" onclick="showArticle('tutoring-guide')">Read Guide →</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="newsletter-section">
-        <div class="container">
-            <div class="newsletter-card">
-                <div class="newsletter-content">
-                    <h3><i class="fas fa-newspaper"></i> Get Monthly Resources</h3>
-                    <p>Subscribe to receive new study guides, exam tips, and parent resources directly to your inbox.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn-primary">
-                            <i class="fas fa-paper-plane"></i> Subscribe
-                        </button>
-                    </form>
-                    <p class="privacy-note">We respect your privacy. Unsubscribe anytime.</p>
+            
+            <!-- ========== PARENT ARTICLES ========== -->
+            
+            <!-- Homework Support Article -->
+            <div id="homework-support-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Homework Support Strategies</h2>
+                    <button class="close-article" onclick="hideArticle('homework-support')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
                 </div>
-                <div class="newsletter-image">
-                    <i class="fas fa-envelope-open-text"></i>
+                <div class="article-body">
+                    <p>Help your child without doing the work.</p>
+                    <h3>Strategies:</h3>
+                    <ul>
+                        <li>Create consistent routine</li>
+                        <li>Provide quiet study space</li>
+                        <li>Ask guiding questions</li>
+                        <li>Encourage breaks</li>
+                    </ul>
                 </div>
             </div>
+            
+            <!-- Screen Time Article -->
+            <div id="screen-time-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Monitoring Screen Time</h2>
+                    <button class="close-article" onclick="hideArticle('screen-time')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Balance technology for learning and leisure.</p>
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Set daily limits</li>
+                        <li>Use parental controls</li>
+                        <li>Schedule tech-free times</li>
+                        <li>Model good habits</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Exam Stress Article -->
+            <div id="exam-stress-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Exam Stress Management</h2>
+                    <button class="close-article" onclick="hideArticle('exam-stress')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>Support your child during tests.</p>
+                    <h3>Ways to help:</h3>
+                    <ul>
+                        <li>Maintain normal routine</li>
+                        <li>Provide healthy meals</li>
+                        <li>Encourage breaks</li>
+                        <li>Focus on effort, not grades</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tutoring Guide Article -->
+            <div id="tutoring-guide-article" class="resource-article">
+                <div class="article-header">
+                    <h2>Tutoring Decision Guide</h2>
+                    <button class="close-article" onclick="hideArticle('tutoring-guide')">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                <div class="article-body">
+                    <p>When to consider extra help.</p>
+                    <h3>Signs:</h3>
+                    <ul>
+                        <li>Consistent low grades</li>
+                        <li>Homework frustration</li>
+                        <li>Lack of confidence</li>
+                        <li>Teacher recommendations</li>
+                    </ul>
+                </div>
+            </div>
+            
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
-                    <h3>EDUSQUAD</h3>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
+                        <span>EDUSQUAD</span>
+                    </div>
+                    <p>Empowering students through personalized education and proven study strategies.</p>
                 </div>
-                <p>Free educational resources to complement our tutoring services.</p>
-                <div class="resource-links">
-                    <a href="#study-tips">Study Tips</a> • 
-                    <a href="#exam-prep">Exam Guides</a> • 
-                    <a href="#parent-resources">Parent Resources</a>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="about.html">About Us</a>
+                    <a href="enroll.html">Enroll Now</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> info@edusquad.com</p>
+                    <p><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Free Resources</h3>
+                    <a href="resources.html">Study Tips</a>
+                    <a href="resources.html">Exam Guides</a>
+                    <a href="resources.html">Templates</a>
+                    <a href="resources.html">Parent Resources</a>
                 </div>
             </div>
-            
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="enroll.html">Enroll</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EDUSQUAD. All rights reserved.</p>
             </div>
-            
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <ul class="contact-info">
-                    <li><i class="fas fa-envelope"></i> enroll.edusquad@gmail.com</li>
-                    <li><i class="fas fa-phone"></i> +234 913 202 4610</li>
-                    <li><i class="fas fa-globe"></i> Serving: Canada, US, UK, Nigeria</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> EDUSQUAD Educational Consult. All rights reserved. | Free educational resources provided.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <!-- Resources Page JavaScript -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Category navigation
-            const categoryLinks = document.querySelectorAll('.category-link');
-            const sections = document.querySelectorAll('.resource-section');
+        // JavaScript for resource page functionality
+        
+        // Show article function
+        function showArticle(articleId) {
+            // Hide all articles first
+            const allArticles = document.querySelectorAll('.resource-article');
+            allArticles.forEach(article => {
+                article.classList.remove('active');
+            });
             
+            // Show selected article
+            const article = document.getElementById(articleId + '-article');
+            if (article) {
+                article.classList.add('active');
+                // Scroll to article
+                article.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            
+            // Update active state on links
+            const allLinks = document.querySelectorAll('.resource-link, .article-link');
+            allLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to clicked link (if possible to identify)
+            event.target.classList.add('active');
+        }
+        
+        // Hide article function
+        function hideArticle(articleId) {
+            const article = document.getElementById(articleId + '-article');
+            if (article) {
+                article.classList.remove('active');
+            }
+            
+            // Remove active class from links
+            const allLinks = document.querySelectorAll('.resource-link, .article-link');
+            allLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+        }
+        
+        // Show subject content
+        function showSubject(subjectId) {
+            // Update active tab
+            const allTabs = document.querySelectorAll('.subject-tab');
+            allTabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Show selected subject articles
+            const allSubjects = document.querySelectorAll('.subject-articles');
+            allSubjects.forEach(subject => {
+                subject.classList.remove('active');
+            });
+            
+            const subject = document.getElementById(subjectId + '-articles');
+            if (subject) {
+                subject.classList.add('active');
+            }
+        }
+        
+        // Category navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryLinks = document.querySelectorAll('.category-link');
             categoryLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     
-                    // Remove active class from all links
+                    // Update active category
                     categoryLinks.forEach(l => l.classList.remove('active'));
-                    // Add active class to clicked link
                     this.classList.add('active');
                     
                     // Scroll to section
                     const targetId = this.getAttribute('href');
                     const targetSection = document.querySelector(targetId);
-                    
                     if (targetSection) {
-                        window.scrollTo({
-                            top: targetSection.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 });
             });
             
-            // Subject tabs
-            const subjectTabs = document.querySelectorAll('.subject-tab');
-            const subjectArticles = document.querySelectorAll('.subject-articles');
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
             
-            subjectTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
-                    subjectTabs.forEach(t => t.classList.remove('active'));
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-                    
-                    // Hide all articles
-                    subjectArticles.forEach(article => {
-                        article.classList.remove('active');
-                    });
-                    
-                    // Show selected articles
-                    const subject = this.getAttribute('data-subject');
-                    const targetArticles = document.getElementById(subject);
-                    if (targetArticles) {
-                        targetArticles.classList.add('active');
-                    }
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('show');
                 });
-            });
-            
-            // Newsletter form
-            const newsletterForm = document.querySelector('.newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = this.querySelector('input[type="email"]').value;
-                    
-                    // Show success message
-                    this.innerHTML = `
-                        <div class="success-message">
-                            <i class="fas fa-check-circle"></i>
-                            <div>
-                                <h4>Subscribed Successfully!</h4>
-                                <p>Thank you for subscribing. You'll receive our next resource update soon.</p>
-                            </div>
-                        </div>
-                    `;
-                });
-            }
-            
-            // Update copyright year
-            const yearElement = document.getElementById('current-year');
-            if (yearElement) {
-                yearElement.textContent = new Date().getFullYear();
             }
         });
     </script>
