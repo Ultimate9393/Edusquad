@@ -745,3 +745,6 @@ input, select, textarea {
 .chess .subject-link {
     color: #f1c40f;
 }
+.clicked {
+    transform: scale(0.98) !important;
+}
