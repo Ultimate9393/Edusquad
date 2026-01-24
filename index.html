@@ -10,24 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-    <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll(".fade-in").forEach(el => {
-    observer.observe(el);
-  });
-
-  document.getElementById("current-year").textContent = new Date().getFullYear();
-});
-</script>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -79,77 +61,54 @@ document.addEventListener("DOMContentLoaded", () => {
     </section>
 
     <!-- Color-Coded Curriculum Preview -->
-<section class="section-light">
-    <div class="container">
-        <h2 class="section-title">OUR CURRICULUM</h2>
-        <p class="section-subtitle">Everything You Need to Excel.</p>
-        <p class="center-text">We offer a comprehensive range of subjects tailored for every grade level. From the logic of Chess to the laws of Physics, we have it covered.</p>
-        <a href="services.html" class="btn-outline">View Full Syllabus <i class="fas fa-arrow-right"></i></a>
-        
-        <div class="subjects-grid">
-            <!-- Physics - Blue -->
-            <div class="subject-card physics">
-                <div class="subject-icon">
-                    <i class="fas fa-atom"></i>
-                </div>
-                <h3>Physics</h3>
-                <p>Understanding the universe</p>
-                <a href="services.html#physics" class="subject-link">Learn more →</a>
-            </div>
+    <section class="section-light">
+        <div class="container">
+            <h2 class="section-title">OUR CURRICULUM</h2>
+            <p class="section-subtitle">Everything You Need to Excel.</p>
+            <p class="center-text">We offer a comprehensive range of subjects tailored for every grade level. From the logic of Chess to the laws of Physics, we have it covered.</p>
+            <a href="services.html" class="btn-outline">View Full Syllabus <i class="fas fa-arrow-right"></i></a>
             
-            <!-- Chemistry - Green -->
-            <div class="subject-card chemistry">
-                <div class="subject-icon">
-                    <i class="fas fa-flask"></i>
+            <div class="subjects-grid">
+                <div class="subject-card physics">
+                    <div class="subject-icon"><i class="fas fa-atom"></i></div>
+                    <h3>Physics</h3>
+                    <p>Understanding the universe</p>
+                    <a href="services.html#physics" class="subject-link">Learn more →</a>
                 </div>
-                <h3>Chemistry</h3>
-                <p>Reactions & matter</p>
-                <a href="services.html#chemistry" class="subject-link">Learn more →</a>
-            </div>
-            
-            <!-- Mathematics - Purple -->
-            <div class="subject-card mathematics">
-                <div class="subject-icon">
-                    <i class="fas fa-calculator"></i>
+                <div class="subject-card chemistry">
+                    <div class="subject-icon"><i class="fas fa-flask"></i></div>
+                    <h3>Chemistry</h3>
+                    <p>Reactions & matter</p>
+                    <a href="services.html#chemistry" class="subject-link">Learn more →</a>
                 </div>
-                <h3>Mathematics</h3>
-                <p>The language of logic</p>
-                <a href="services.html#mathematics" class="subject-link">Learn more →</a>
-            </div>
-            
-            <!-- English - Orange -->
-            <div class="subject-card english">
-                <div class="subject-icon">
-                    <i class="fas fa-book"></i>
+                <div class="subject-card mathematics">
+                    <div class="subject-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>Mathematics</h3>
+                    <p>The language of logic</p>
+                    <a href="services.html#mathematics" class="subject-link">Learn more →</a>
                 </div>
-                <h3>English</h3>
-                <p>Literature & grammar</p>
-                <a href="services.html#english" class="subject-link">Learn more →</a>
-            </div>
-            
-            <!-- Social Studies - Red -->
-            <div class="subject-card social-studies">
-                <div class="subject-icon">
-                    <i class="fas fa-landmark"></i>
+                <div class="subject-card english">
+                    <div class="subject-icon"><i class="fas fa-book"></i></div>
+                    <h3>English</h3>
+                    <p>Literature & grammar</p>
+                    <a href="services.html#english" class="subject-link">Learn more →</a>
                 </div>
-                <h3>Social Studies</h3>
-                <p>History & society</p>
-                <a href="services.html#social-studies" class="subject-link">Learn more →</a>
-            </div>
-            
-            <!-- Chess - Gold -->
-            <div class="subject-card chess">
-                <div class="subject-icon">
-                    <i class="fas fa-chess"></i>
+                <div class="subject-card social-studies">
+                    <div class="subject-icon"><i class="fas fa-landmark"></i></div>
+                    <h3>Social Studies</h3>
+                    <p>History & society</p>
+                    <a href="services.html#social-studies" class="subject-link">Learn more →</a>
                 </div>
-                <h3>Chess</h3>
-                <p>Strategic thinking</p>
-                <a href="services.html#chess" class="subject-link">Learn more →</a>
+                <div class="subject-card chess">
+                    <div class="subject-icon"><i class="fas fa-chess"></i></div>
+                    <h3>Chess</h3>
+                    <p>Strategic thinking</p>
+                    <a href="services.html#chess" class="subject-link">Learn more →</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-    
+    </section>
+
     <!-- Founder Preview -->
     <section class="section-dark">
         <div class="container">
@@ -268,6 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
