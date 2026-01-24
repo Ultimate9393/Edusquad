@@ -107,34 +107,6 @@
             animation: slideInRight 0.5s ease;
         }
         
-        .download-box {
-            background: linear-gradient(135deg, #e8f6f3 0%, #d1f2eb 100%);
-            border-left: 4px solid #2ecc71;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 8px;
-            text-align: center;
-            animation: pulse 2s infinite;
-        }
-        
-        .download-link {
-            display: inline-block;
-            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
-        }
-        
-        .download-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
-        }
-        
         /* Animation Keyframes */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -149,12 +121,6 @@
         @keyframes slideInRight {
             from { opacity: 0; transform: translateX(30px); }
             to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.3); }
-            70% { box-shadow: 0 0 0 10px rgba(46, 204, 113, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
         }
         
         @keyframes float {
@@ -275,7 +241,6 @@
         .resource-card:nth-child(3) { animation-delay: 0.3s; }
         .resource-card:nth-child(4) { animation-delay: 0.4s; }
         .resource-card:nth-child(5) { animation-delay: 0.5s; }
-        .resource-card:nth-child(6) { animation-delay: 0.6s; }
         
         @keyframes fadeInUp {
             to {
@@ -438,7 +403,7 @@
                 <i class="fas fa-bars"></i>
             </button>
         </div>
-    </nav>
+</nav>
 
     <!-- Hero Section -->
     <section class="resources-hero">
@@ -451,7 +416,7 @@
                 <div class="resource-stats">
                     <div class="stat">
                         <i class="fas fa-book-open"></i>
-                        <span>free Articles</span>
+                        <span>Free Articles</span>
                     </div>
                     <div class="stat">
                         <i class="fas fa-clock"></i>
@@ -459,7 +424,7 @@
                     </div>
                     <div class="stat">
                         <i class="fas fa-download"></i>
-                        <span>Free info</span>
+                        <span>Free Info</span>
                     </div>
                 </div>
             </div>
@@ -493,7 +458,7 @@
                 <p>Click any tip below to read the complete guide</p>
             </div>
             
-            <!-- Resource Links Grid -->
+            <!-- Resource Links Grid (Now 5 cards) -->
             <div class="resources-grid">
                 <!-- Pomodoro Method -->
                 <div class="resource-card">
@@ -540,22 +505,6 @@
                             <span><i class="fas fa-clock"></i> 8 min read</span>
                         </div>
                         <a class="resource-link" onclick="showArticle('notes')">Read Guide →</a>
-                    </div>
-                </div>
-
-                <!-- Study Schedule -->
-                <div class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-calendar-alt" style="color: #9b59b6;"></i>
-                    </div>
-                    <div class="resource-content">
-                        <span class="resource-tag">Planning</span>
-                        <h3>Study Schedule Template</h3>
-                        <p>Weekly planner for schoolwork balance.</p>
-                        <div class="resource-meta">
-                            <span><i class="fas fa-download"></i> Free PDF</span>
-                        </div>
-                        <a class="resource-link" onclick="showArticle('schedule')">Get Template →</a>
                     </div>
                 </div>
 
@@ -648,25 +597,6 @@
                     <p>Best for lectures and textbooks.</p>
                     <h3>Mind Mapping:</h3>
                     <p>Best for creative subjects and connections.</p>
-                </div>
-            </div>
-            
-            <!-- Study Schedule Article -->
-            <div id="schedule-article" class="resource-article">
-                <div class="article-header">
-                    <h2>Study Schedule Template</h2>
-                    <button class="close-article" onclick="hideArticle('schedule')">
-                        <i class="fas fa-times"></i> Close
-                    </button>
-                </div>
-                <div class="article-body">
-                    <p>Balance schoolwork and free time.</p>
-                    <div class="download-box">
-                        <h4>Free Study Schedule Template</h4>
-                        <a href="#" class="download-link">
-                            <i class="fas fa-download"></i> Download Template
-                        </a>
-                    </div>
                 </div>
             </div>
             
@@ -822,10 +752,10 @@
                     <p>Support your child during tests.</p>
                     <h3>Ways to help:</h3>
                     <ul>
-                        <li>assist them to revise</li>
+                        <li>Assist them to revise</li>
                         <li>Provide healthy meals</li>
                         <li>Encourage breaks</li>
-                        <li>look out for health issues</li>
+                        <li>Look out for health issues</li>
                     </ul>
                 </div>
             </div>
@@ -852,6 +782,442 @@
             
         </div>
     </section>
+    <!-- Child Learning Animation -->
+<section class="child-learning-section">
+    <div class="container">
+        <div class="learning-animation">
+            <div class="animation-header">
+                <h2>Every Child Can Excel</h2>
+                <p>With the right support and strategies</p>
+            </div>
+            
+            <div class="animation-container">
+                <!-- Child Character -->
+                <div class="child-character">
+                    <div class="head">
+                        <div class="face">
+                            <div class="eyes">
+                                <div class="eye left"></div>
+                                <div class="eye right"></div>
+                            </div>
+                            <div class="smile"></div>
+                        </div>
+                        <div class="hair"></div>
+                    </div>
+                    <div class="body">
+                        <div class="arm left-arm"></div>
+                        <div class="arm right-arm"></div>
+                    </div>
+                    <div class="book"></div>
+                    <div class="lightbulb"></div>
+                </div>
+                
+                <!-- Books -->
+                <div class="floating-book book1">M</div>
+                <div class="floating-book book2">S</div>
+                <div class="floating-book book3">E</div>
+                
+                <!-- Stars -->
+                <div class="star star1">★</div>
+                <div class="star star2">★</div>
+                <div class="star star3">★</div>
+                <div class="star star4">★</div>
+            </div>
+            
+            <div class="animation-message">
+                <p>Empowering young minds to reach their full potential</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Child Learning Animation Styles */
+    .child-learning-section {
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        padding: 4rem 0;
+        margin-top: 3rem;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .child-learning-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+        background-size: cover;
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .animation-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    .animation-header h2 {
+        color: #1a5fb4;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        animation: fadeIn 1s ease;
+    }
+    
+    .animation-header p {
+        color: #666;
+        font-size: 1.2rem;
+        animation: fadeIn 1s ease 0.5s both;
+    }
+    
+    .animation-container {
+        position: relative;
+        height: 300px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* Child Character */
+    .child-character {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 150px;
+        height: 200px;
+        animation: floatChild 3s ease-in-out infinite;
+    }
+    
+    .head {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        background: #ffccbc;
+        border-radius: 50%;
+        z-index: 2;
+    }
+    
+    .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .eyes {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+    
+    .eye {
+        width: 8px;
+        height: 8px;
+        background: #333;
+        border-radius: 50%;
+        animation: blink 3s infinite;
+    }
+    
+    .smile {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 10px;
+        border-bottom: 3px solid #333;
+        border-radius: 0 0 20px 20px;
+    }
+    
+    .hair {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+        height: 20px;
+        background: #5d4037;
+        border-radius: 50% 50% 0 0;
+    }
+    
+    .body {
+        position: absolute;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 100px;
+        background: #1a5fb4;
+        border-radius: 10px;
+    }
+    
+    .arm {
+        position: absolute;
+        top: 10px;
+        width: 20px;
+        height: 40px;
+        background: #ffccbc;
+        border-radius: 10px;
+    }
+    
+    .left-arm {
+        left: -25px;
+        transform-origin: top right;
+        animation: waveLeft 2s infinite;
+    }
+    
+    .right-arm {
+        right: -25px;
+        transform-origin: top left;
+        animation: waveRight 2s infinite;
+    }
+    
+    .book {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 70px;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .book::before {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 5px;
+        right: 10px;
+        height: 3px;
+        background: #f1c40f;
+    }
+    
+    .book::after {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 15px;
+        right: 10px;
+        height: 2px;
+        background: #ddd;
+    }
+    
+    .lightbulb {
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 30px;
+        background: #f1c40f;
+        border-radius: 50%;
+        animation: glow 2s infinite;
+    }
+    
+    .lightbulb::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 15px;
+        height: 15px;
+        background: #f1c40f;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+    
+    /* Floating Books */
+    .floating-book {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: #1a5fb4;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        animation: floatAround 6s infinite linear;
+    }
+    
+    .book1 {
+        top: 20%;
+        left: 10%;
+        background: #e8f6f3;
+        animation-delay: 0s;
+    }
+    
+    .book2 {
+        top: 10%;
+        right: 15%;
+        background: #f0f7ff;
+        animation-delay: 2s;
+    }
+    
+    .book3 {
+        bottom: 30%;
+        right: 5%;
+        background: #fff8e1;
+        animation-delay: 4s;
+    }
+    
+    /* Stars */
+    .star {
+        position: absolute;
+        color: #f1c40f;
+        font-size: 1.5rem;
+        animation: twinkle 2s infinite;
+    }
+    
+    .star1 {
+        top: 15%;
+        left: 20%;
+        animation-delay: 0s;
+    }
+    
+    .star2 {
+        top: 40%;
+        right: 25%;
+        animation-delay: 0.5s;
+    }
+    
+    .star3 {
+        bottom: 20%;
+        left: 30%;
+        animation-delay: 1s;
+    }
+    
+    .star4 {
+        bottom: 40%;
+        right: 10%;
+        animation-delay: 1.5s;
+    }
+    
+    .animation-message {
+        text-align: center;
+        margin-top: 3rem;
+        animation: fadeIn 1s ease 1s both;
+    }
+    
+    .animation-message p {
+        font-size: 1.3rem;
+        color: #1a5fb4;
+        font-weight: 600;
+        padding: 1rem 2rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50px;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Animations */
+    @keyframes floatChild {
+        0%, 100% { transform: translate(-50%, -50%); }
+        50% { transform: translate(-50%, -55%); }
+    }
+    
+    @keyframes blink {
+        0%, 95%, 100% { transform: scaleY(1); }
+        97.5% { transform: scaleY(0.1); }
+    }
+    
+    @keyframes waveLeft {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(-20deg); }
+    }
+    
+    @keyframes waveRight {
+        0%, 100% { transform: rotate(0deg); }
+        50% { transform: rotate(20deg); }
+    }
+    
+    @keyframes glow {
+        0%, 100% { 
+            box-shadow: 0 0 10px #f1c40f;
+            opacity: 1;
+        }
+        50% { 
+            box-shadow: 0 0 20px #f1c40f, 0 0 30px #f1c40f;
+            opacity: 0.8;
+        }
+    }
+    
+    @keyframes floatAround {
+        0% { 
+            transform: translateY(0) rotate(0deg);
+        }
+        25% { 
+            transform: translateY(-20px) rotate(90deg);
+        }
+        50% { 
+            transform: translateY(0) rotate(180deg);
+        }
+        75% { 
+            transform: translateY(-20px) rotate(270deg);
+        }
+        100% { 
+            transform: translateY(0) rotate(360deg);
+        }
+    }
+    
+    @keyframes twinkle {
+        0%, 100% { 
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% { 
+            transform: scale(1.3);
+            opacity: 0.7;
+        }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .animation-container {
+            height: 250px;
+        }
+        
+        .child-character {
+            width: 120px;
+            height: 160px;
+        }
+        
+        .head {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .body {
+            width: 60px;
+            height: 80px;
+        }
+        
+        .animation-header h2 {
+            font-size: 2rem;
+        }
+        
+        .animation-message p {
+            font-size: 1.1rem;
+        }
+        
+        .floating-book {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+        }
+    }
+</style>
 
     <!-- Simple Footer -->
     <footer class="simple-footer">
