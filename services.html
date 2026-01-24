@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Services - EDUSQUAD Tutoring</title>
-
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,24 +11,35 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    transition-delay: var(--delay, 0s);
-}
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-.pulse {
-    animation: pulse 2s infinite;
-}
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
+.fade-in{opacity:0;transform:translateY(30px);transition:all .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.pulse{animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+.bounce-in{animation:bounceIn 1s ease}
+@keyframes bounceIn{0%{transform:scale(.3);opacity:0}50%{transform:scale(1.05)}70%{transform:scale(.9)}100%{transform:scale(1);opacity:1}}
+.grade-levels{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:40px}
+.grade-card{background:white;border-radius:20px;padding:30px 25px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.08);transition:.4s;border-bottom:6px solid;position:relative;overflow:hidden}
+.grade-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--color1),var(--color2))}
+.grade-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,.15)}
+.grade-icon{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:bold;margin:0 auto 20px;color:white;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.grade-card:nth-child(1){--color1:#FF6B6B;--color2:#FF8E8E;border-color:#FF6B6B}
+.grade-card:nth-child(1) .grade-icon{background:linear-gradient(135deg,#FF6B6B,#FF8E8E)}
+.grade-card:nth-child(2){--color1:#4ECDC4;--color2:#6DE7DF;border-color:#4ECDC4}
+.grade-card:nth-child(2) .grade-icon{background:linear-gradient(135deg,#4ECDC4,#6DE7DF)}
+.grade-card:nth-child(3){--color1:#FFD166;--color2:#FFDF8E;border-color:#FFD166}
+.grade-card:nth-child(3) .grade-icon{background:linear-gradient(135deg,#FFD166,#FFDF8E)}
+.grade-card:nth-child(4){--color1:#9D4EDD;--color2:#C77DFF;border-color:#9D4EDD}
+.grade-card:nth-child(4) .grade-icon{background:linear-gradient(135deg,#9D4EDD,#C77DFF)}
+.subjects-detailed{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;margin-top:40px}
+.subject-detail{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:15px;padding:25px;border-left:5px solid;transition:.4s;position:relative;overflow:hidden}
+.subject-detail:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,.2)}
+.approach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;margin-top:40px}
+.approach-item{background:white;border-radius:15px;padding:30px 25px;text-align:center;box-shadow:0 8px 25px rgba(0,0,0,.08);transition:.4s;border-top:4px solid #1a5fb4}
+.approach-item:hover{transform:translateY(-10px) scale(1.02)}
+.student-quote{background:linear-gradient(135deg,#1a5fb4,#2d8fff);color:white;padding:40px;border-radius:20px;margin:50px 0;text-align:center}
+.fun-fact{background:#FFD166;color:#333;padding:15px 25px;border-radius:50px;display:inline-flex;align-items:center;gap:10px;margin:20px 0;font-weight:600}
+.emoji-badge{background:#FF6B6B;color:white;padding:5px 15px;border-radius:20px;font-size:.9rem;margin-left:10px}
+.clicked{transform:scale(.97)!important}
 </style>
 </head>
 
@@ -37,9 +47,8 @@
 
 <nav class="navbar">
 <div class="nav-container">
-<div class="logo">
-<img src="images/logo.png" height="40">
-<span>EDUSQUAD</span>
+<div class="logo bounce-in">
+<img src="images/logo.png" height="40"> <span>EDUSQUAD</span>
 </div>
 <div class="nav-menu">
 <a href="index.html">Home</a>
@@ -48,85 +57,43 @@
 <a href="enroll.html">Enroll</a>
 <a href="testimonials.html">Testimonials</a>
 </div>
+<button class="menu-toggle"><i class="fas fa-bars"></i></button>
 </div>
 </nav>
 
 <section class="page-header">
 <div class="container">
-<h1 class="fade-in" style="--delay:0s;">Our Comprehensive Tutoring Services</h1>
-<p class="fade-in" style="--delay:0.2s;">Tailored education for students from Grade 1 through College level</p>
-
-<div class="fun-fact fade-in" style="--delay:0.4s;">
-<i class="fas fa-lightbulb"></i> 95% of our students improve within 3 months!
-</div>
+<h1 class="fade-in">Our Comprehensive Tutoring Services</h1>
+<p class="fade-in">Tailored education for students from Grade 1 through College level</p>
+<div class="fun-fact fade-in"><i class="fas fa-lightbulb"></i>95% improve in 3 months<span class="emoji-badge">🎯</span></div>
 </div>
 </section>
 
 <section class="section-light">
 <div class="container">
 <h2 class="section-title fade-in">Grade Levels We Serve</h2>
-
 <div class="grade-levels">
-<div class="grade-card fade-in" style="--delay:0.2s;">
-<div class="grade-icon">1–6</div>
-<h3>Elementary School</h3>
-<p>Strong foundations in reading, writing, and math.</p>
-</div>
-
-<div class="grade-card fade-in" style="--delay:0.3s;">
-<div class="grade-icon">7–9</div>
-<h3>Middle School</h3>
-<p>Study skills and academic transition support.</p>
-</div>
-
-<div class="grade-card fade-in" style="--delay:0.4s;">
-<div class="grade-icon">10–12</div>
-<h3>High School</h3>
-<p>WAEC, JAMB, SAT & ACT exam prep.</p>
-</div>
-
-<div class="grade-card fade-in" style="--delay:0.5s;">
-<div class="grade-icon">C</div>
-<h3>College</h3>
-<p>University-level subject mastery and research help.</p>
-</div>
+<div class="grade-card fade-in"><div class="grade-icon">1-6</div><h3>Elementary</h3><p>Strong foundation</p></div>
+<div class="grade-card fade-in"><div class="grade-icon">7-9</div><h3>Middle School</h3><p>Skill development</p></div>
+<div class="grade-card fade-in"><div class="grade-icon">10-12</div><h3>High School</h3><p>Exam prep</p></div>
+<div class="grade-card fade-in"><div class="grade-icon">C</div><h3>College</h3><p>Advanced tutoring</p></div>
 </div>
 </div>
 </section>
 
 <section class="section-dark">
 <div class="container">
-<h2 class="section-title fade-in">Subjects We Cover</h2>
-
+<h2 class="section-title fade-in">All Subjects</h2>
 <div class="subjects-detailed">
-<div class="subject-detail fade-in" style="--delay:0.2s;"><h3><i class="fas fa-atom"></i> Physics</h3></div>
-<div class="subject-detail fade-in" style="--delay:0.3s;"><h3><i class="fas fa-calculator"></i> Mathematics</h3></div>
-<div class="subject-detail fade-in" style="--delay:0.4s;"><h3><i class="fas fa-flask"></i> Chemistry</h3></div>
-<div class="subject-detail fade-in" style="--delay:0.5s;"><h3><i class="fas fa-book"></i> English</h3></div>
-<div class="subject-detail fade-in" style="--delay:0.6s;"><h3><i class="fas fa-chess"></i> Chess</h3></div>
-<div class="subject-detail fade-in" style="--delay:0.7s;"><h3><i class="fas fa-language"></i> French</h3></div>
-<div class="subject-detail fade-in" style="--delay:0.8s;"><h3><i class="fas fa-dna"></i> Biology</h3></div>
+<div class="subject-detail fade-in"><h3><i class="fas fa-atom"></i> Physics</h3></div>
+<div class="subject-detail fade-in"><h3><i class="fas fa-calculator"></i> Mathematics</h3></div>
+<div class="subject-detail fade-in"><h3><i class="fas fa-flask"></i> Chemistry</h3></div>
+<div class="subject-detail fade-in"><h3><i class="fas fa-book"></i> English</h3></div>
+<div class="subject-detail fade-in"><h3><i class="fas fa-chess"></i> Chess</h3></div>
+<div class="subject-detail fade-in"><h3><i class="fas fa-globe"></i> Social Studies</h3></div>
+<div class="subject-detail fade-in"><h3><i class="fas fa-language"></i> French</h3></div>
+<div class="subject-detail fade-in"><h3><i class="fas fa-dna"></i> Biology</h3></div>
 </div>
-</div>
-</section>
-
-<section class="cta-section">
-<div class="container">
-
-<div class="fade-in" style="--delay:0s;">
-<h2>Ready to Start Your Learning Journey?</h2>
-</div>
-
-<div class="fade-in" style="--delay:0.2s;">
-<p>Join students in Canada, US, UK & Nigeria.</p>
-</div>
-
-<div class="fade-in" style="--delay:0.4s;">
-<a href="enroll.html" class="btn-primary pulse">
-Enroll Now <i class="fas fa-arrow-right"></i>
-</a>
-</div>
-
 </div>
 </section>
 
@@ -137,20 +104,20 @@ Enroll Now <i class="fas fa-arrow-right"></i>
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-const fadeElements = document.querySelectorAll(".fade-in");
-
-const observer = new IntersectionObserver(entries => {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add("visible");
-observer.unobserve(entry.target);
-}
+document.addEventListener("DOMContentLoaded",()=>{
+const obs=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add("visible");obs.unobserve(e.target)}
+})
+},{threshold:.1});
+document.querySelectorAll(".fade-in").forEach(el=>obs.observe(el));
+document.querySelectorAll(".grade-card,.subject-detail").forEach(el=>{
+el.addEventListener("click",()=>{
+el.classList.add("clicked");
+setTimeout(()=>el.classList.remove("clicked"),150);
+})
 });
-},{ threshold:0.1 });
-
-fadeElements.forEach(el => observer.observe(el));
-document.getElementById("current-year").textContent = new Date().getFullYear();
+document.getElementById("current-year").textContent=new Date().getFullYear();
 });
 </script>
 
