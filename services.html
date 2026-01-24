@@ -647,49 +647,38 @@
 
     <script src="script.js"></script>
     <script>
-        // Animation on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-            
-            fadeElements.forEach(element => {
-                observer.observe(element);
-            });
-            
-            // Interactive hover effects
-            document.querySelectorAll('.hover-effect').forEach(element => {
-                element.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05)';
-                });
-                
-                element.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            });
-            
-            // Fun click effects
-            document.querySelectorAll('.grade-card, .subject-detail').forEach(element => {
-                element.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 200);
-                });
-            });
-            
-            // Update current year
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', function() {
+    const fadeElements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // animate once
+            }
         });
-    </script>
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
+
+    // Fun click effect (kept, but safe)
+    document.querySelectorAll('.grade-card, .subject-detail').forEach(element => {
+        element.addEventListener('click', function() {
+            this.classList.add('clicked');
+            setTimeout(() => {
+                this.classList.remove('clicked');
+            }, 150);
+        });
+    });
+
+    // Update current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+});
+</script>
 </body>
 </html>
