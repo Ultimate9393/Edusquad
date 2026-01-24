@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enroll Your Child - EDUSQUAD Tutoring</title>
+    <title>Enroll Your Child - EDUSQUAD Premium Tutoring</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -31,166 +31,443 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Hero Header with Stats -->
+    <section class="enroll-hero">
         <div class="container">
-            <h1>Enroll Your Child Today</h1>
-            <p>Join students from Canada, US, UK, and Nigeria achieving academic excellence</p>
-        </div>
-    </section>
-
-    <!-- Enrollment Form -->
-    <section class="section-light">
-        <div class="container">
-            <div class="form-container">
-                <div class="form-info">
-                    <h2>Start Your Learning Journey</h2>
-                    <p>Complete this form to enroll your child in EDUSQUAD tutoring. We'll contact you within 24 hours to discuss your child's learning needs and schedule a free assessment session.</p>
+            <div class="enroll-hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Start Your Child's <span class="highlight">Success Journey</span> Today</h1>
+                    <p class="hero-subtitle">Join 500+ students across 4 countries achieving academic excellence with personalized EDUSQUAD tutoring.</p>
                     
-                    <div class="form-benefits">
-                        <h3><i class="fas fa-check-circle"></i> What Happens Next?</h3>
-                        <ul>
-                            <li>Free 30-minute assessment session</li>
-                            <li>Personalized learning plan created</li>
-                            <li>Match with perfect tutor</li>
-                            <li>Flexible schedule setup</li>
-                            <li>Begin learning journey</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="contact-alternative">
-                        <h3>Prefer to Call?</h3>
-                        <p><i class="fas fa-phone"></i> +234 913 202 4610</p>
-                        <p><i class="fas fa-envelope"></i> enroll.edusquad@gmail.com</p>
+                    <div class="hero-stats">
+                        <div class="stat-badge">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <span class="stat-number">95%</span>
+                                <span class="stat-label">Grade Improvement</span>
+                            </div>
+                        </div>
+                        <div class="stat-badge">
+                            <i class="fas fa-user-graduate"></i>
+                            <div>
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Expert Tutors</span>
+                            </div>
+                        </div>
+                        <div class="stat-badge">
+                            <i class="fas fa-globe"></i>
+                            <div>
+                                <span class="stat-number">4</span>
+                                <span class="stat-label">Countries</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="form-wrapper">
+                <div class="hero-cta">
+                    <div class="cta-card">
+                        <h3><i class="fas fa-gift"></i> Free Assessment Session</h3>
+                        <p>Book a <strong>free 30-minute assessment</strong> to identify your child's learning needs</p>
+                        <a href="#enroll-form" class="btn-primary hero-btn">
+                            <i class="fas fa-calendar-check"></i> Start Enrollment
+                        </a>
+                        <div class="cta-features">
+                            <span><i class="fas fa-check-circle"></i> No commitment</span>
+                            <span><i class="fas fa-check-circle"></i> Personalized plan</span>
+                            <span><i class="fas fa-check-circle"></i> Match with perfect tutor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Process Steps -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Simple 4-Step Enrollment</h2>
+            <p class="section-subtitle">From inquiry to first session in less than 48 hours</p>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Complete Form</h3>
+                    <p>Fill out our enrollment form with your child's details</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Free Consultation</h3>
+                    <p>We'll call to discuss goals & schedule assessment</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Free Assessment</h3>
+                    <p>30-minute session to evaluate learning needs</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Start Learning</h3>
+                    <p>Begin personalized sessions with matched tutor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Enrollment Form -->
+    <section class="enroll-form-section" id="enroll-form">
+        <div class="container">
+            <div class="form-header">
+                <h2>Enrollment Application</h2>
+                <p>Please complete this form to begin your child's EDUSQUAD journey. All fields marked with * are required.</p>
+                <div class="form-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span class="active">Parent Info</span>
+                        <span>Student Info</span>
+                        <span>Learning Needs</span>
+                        <span>Review & Submit</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <!-- Form Left Side - Visual -->
+                <div class="form-sidebar">
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-shield-alt"></i> Secure & Confidential</h3>
+                        <p>Your information is protected with 256-bit SSL encryption</p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-clock"></i> Quick Response</h3>
+                        <p>We contact all applicants within <strong>24 hours</strong></p>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <h3><i class="fas fa-handshake"></i> No Pressure</h3>
+                        <p>Free assessment with no obligation to continue</p>
+                    </div>
+                    
+                    <div class="contact-alternative">
+                        <h4><i class="fas fa-comments"></i> Prefer to Talk?</h4>
+                        <div class="contact-method">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Call Us</strong>
+                                <p>+234 913 202 4610</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email Us</strong>
+                                <p>enroll.edusquad@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-whatsapp"></i>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <p>+234 913 202 4610</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Form Right Side - Actual Form -->
+                <div class="form-main">
                     <form id="enrollmentForm" action="https://formspree.io/f/xbjnpblk" method="POST">
-                        <!-- Formspree will forward to your email -->
-                        <input type="hidden" name="_subject" value="New EDUSQUAD Enrollment Request">
+                        <input type="hidden" name="_subject" value="🔥 NEW EDUSQUAD ENROLLMENT - Priority">
                         <input type="hidden" name="_replyto" value="enroll.edusquad@gmail.com">
+                        <input type="hidden" name="_cc" value="enroll.edusquad@gmail.com">
                         
-                        <h3>Parent/Guardian Information</h3>
-                        
-                        <div class="form-group">
-                            <label for="parentName">Full Name *</label>
-                            <input type="text" id="parentName" name="parentName" required>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="parentEmail">Email Address *</label>
-                                <input type="email" id="parentEmail" name="parentEmail" required>
+                        <!-- Form Step 1 -->
+                        <div class="form-step active">
+                            <div class="step-header">
+                                <span class="step-tag">Step 1 of 4</span>
+                                <h3><i class="fas fa-user-tie"></i> Parent/Guardian Information</h3>
                             </div>
-                            <div class="form-group">
-                                <label for="parentPhone">Phone Number *</label>
-                                <input type="tel" id="parentPhone" name="parentPhone" required>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="parentName">
+                                        <i class="fas fa-user"></i> Full Name *
+                                    </label>
+                                    <input type="text" id="parentName" name="parentName" required placeholder="Enter your full name">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="parentEmail">
+                                        <i class="fas fa-envelope"></i> Email Address *
+                                    </label>
+                                    <input type="email" id="parentEmail" name="parentEmail" required placeholder="your.email@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="parentPhone">
+                                        <i class="fas fa-phone"></i> Phone Number *
+                                    </label>
+                                    <input type="tel" id="parentPhone" name="parentPhone" required placeholder="+234 XXX XXX XXXX">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="country">
+                                        <i class="fas fa-globe-americas"></i> Country of Residence *
+                                    </label>
+                                    <select id="country" name="country" required class="styled-select">
+                                        <option value="">Select Country</option>
+                                        <option value="Canada">🇨🇦 Canada</option>
+                                        <option value="United States">🇺🇸 United States</option>
+                                        <option value="United Kingdom">🇬🇧 United Kingdom</option>
+                                        <option value="Nigeria">🇳🇬 Nigeria</option>
+                                        <option value="Other">🌍 Other Country</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="timezone">
+                                        <i class="fas fa-clock"></i> Preferred Time Zone
+                                    </label>
+                                    <select id="timezone" name="timezone" class="styled-select">
+                                        <option value="">Select Time Zone</option>
+                                        <option value="EST">🕐 Eastern Time (EST)</option>
+                                        <option value="CST">🕑 Central Time (CST)</option>
+                                        <option value="PST">🕒 Pacific Time (PST)</option>
+                                        <option value="GMT">🕓 GMT (UK)</option>
+                                        <option value="WAT">🕔 West Africa Time (WAT)</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="country">Country of Residence *</label>
-                            <select id="country" name="country" required>
-                                <option value="">Select Country</option>
-                                <option value="Canada">Canada</option>
-                                <option value="United States">United States</option>
-                                <option value="United Kingdom">United Kingdom</option>
-                                <option value="Nigeria">Nigeria</option>
-                                <option value="Other">Other</option>
-                            </select>
+                        <!-- Form Step 2 -->
+                        <div class="form-step">
+                            <div class="step-header">
+                                <span class="step-tag">Step 2 of 4</span>
+                                <h3><i class="fas fa-graduation-cap"></i> Student Information</h3>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="studentName">
+                                        <i class="fas fa-child"></i> Student's Full Name *
+                                    </label>
+                                    <input type="text" id="studentName" name="studentName" required placeholder="Enter student's full name">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="gradeLevel">
+                                        <i class="fas fa-school"></i> Grade Level *
+                                    </label>
+                                    <select id="gradeLevel" name="gradeLevel" required class="styled-select">
+                                        <option value="">Select Grade Level</option>
+                                        <optgroup label="Elementary School">
+                                            <option value="Grades 1-3">Grades 1-3 (Ages 6-8)</option>
+                                            <option value="Grades 4-6">Grades 4-6 (Ages 9-11)</option>
+                                        </optgroup>
+                                        <optgroup label="Middle School">
+                                            <option value="Grades 7-9">Grades 7-9 (Ages 12-14)</option>
+                                        </optgroup>
+                                        <optgroup label="High School">
+                                            <option value="Grade 10">Grade 10 (Age 15)</option>
+                                            <option value="Grade 11">Grade 11 (Age 16)</option>
+                                            <option value="Grade 12">Grade 12 (Age 17)</option>
+                                        </optgroup>
+                                        <optgroup label="Higher Education">
+                                            <option value="College/University">College/University</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="studentAge">
+                                        <i class="fas fa-birthday-cake"></i> Student's Age
+                                    </label>
+                                    <input type="number" id="studentAge" name="studentAge" min="5" max="25" placeholder="Age">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="school">
+                                        <i class="fas fa-university"></i> Current School
+                                    </label>
+                                    <input type="text" id="school" name="school" placeholder="Name of current school">
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="timezone">Preferred Time Zone</label>
-                            <select id="timezone" name="timezone">
-                                <option value="">Select Time Zone</option>
-                                <option value="EST">Eastern Time (EST)</option>
-                                <option value="CST">Central Time (CST)</option>
-                                <option value="PST">Pacific Time (PST)</option>
-                                <option value="GMT">GMT (UK)</option>
-                                <option value="WAT">West Africa Time (WAT)</option>
-                            </select>
-                        </div>
-                        
-                        <h3>Student Information</h3>
-                        
-                        <div class="form-group">
-                            <label for="studentName">Student's Full Name *</label>
-                            <input type="text" id="studentName" name="studentName" required>
-                        </div>
-                        
-                        <div class="form-row">
+                        <!-- Form Step 3 -->
+                        <div class="form-step">
+                            <div class="step-header">
+                                <span class="step-tag">Step 3 of 4</span>
+                                <h3><i class="fas fa-book-open"></i> Learning Needs & Goals</h3>
+                            </div>
+                            
                             <div class="form-group">
-                                <label for="gradeLevel">Grade Level *</label>
-                                <select id="gradeLevel" name="gradeLevel" required>
-                                    <option value="">Select Grade</option>
-                                    <option value="1-3">Grades 1-3</option>
-                                    <option value="4-6">Grades 4-6</option>
-                                    <option value="7-9">Grades 7-9</option>
-                                    <option value="10-12">Grades 10-12</option>
-                                    <option value="College">College/University</option>
+                                <label><i class="fas fa-clipboard-list"></i> Subjects Needed *</label>
+                                <div class="subjects-selection">
+                                    <div class="subject-option">
+                                        <input type="checkbox" id="physics" name="subjects" value="Physics">
+                                        <label for="physics" class="subject-label physics">
+                                            <i class="fas fa-atom"></i>
+                                            <span>Physics</span>
+                                        </label>
+                                    </div>
+                                    <div class="subject-option">
+                                        <input type="checkbox" id="mathematics" name="subjects" value="Mathematics">
+                                        <label for="mathematics" class="subject-label mathematics">
+                                            <i class="fas fa-calculator"></i>
+                                            <span>Mathematics</span>
+                                        </label>
+                                    </div>
+                                    <div class="subject-option">
+                                        <input type="checkbox" id="chemistry" name="subjects" value="Chemistry">
+                                        <label for="chemistry" class="subject-label chemistry">
+                                            <i class="fas fa-flask"></i>
+                                            <span>Chemistry</span>
+                                        </label>
+                                    </div>
+                                    <div class="subject-option">
+                                        <input type="checkbox" id="english" name="subjects" value="English">
+                                        <label for="english" class="subject-label english">
+                                            <i class="fas fa-book"></i>
+                                            <span>English</span>
+                                        </label>
+                                    </div>
+                                    <div class="subject-option">
+                                        <input type="checkbox" id="social-studies" name="subjects" value="Social Studies">
+                                        <label for="social-studies" class="subject-label social-studies">
+                                            <i class="fas fa-landmark"></i>
+                                            <span>Social Studies</span>
+                                        </label>
+                                    </div>
+                                    <div class="subject-option">
+                                        <input type="checkbox" id="french" name="subjects" value="French">
+                                        <label for="french" class="subject-label french">
+                                            <i class="fas fa-language"></i>
+                                            <span>French</span>
+                                        </label>
+                                    </div>
+                                    <div class="subject-option">
+                                        <input type="checkbox" id="biology" name="subjects" value="Biology">
+                                        <label for="biology" class="subject-label biology">
+                                            <i class="fas fa-dna"></i>
+                                            <span>Biology</span>
+                                        </label>
+                                    </div>
+                                    <div class="subject-option">
+                                        <input type="checkbox" id="chess" name="subjects" value="Chess">
+                                        <label for="chess" class="subject-label chess">
+                                            <i class="fas fa-chess"></i>
+                                            <span>Chess</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="goals">
+                                    <i class="fas fa-bullseye"></i> Learning Goals & Challenges
+                                </label>
+                                <textarea id="goals" name="goals" rows="4" placeholder="Tell us about your child's academic goals, specific challenges, areas needing improvement, or upcoming exams..."></textarea>
+                                <div class="char-count">0/500 characters</div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="frequency">
+                                        <i class="fas fa-calendar-alt"></i> Preferred Session Frequency
+                                    </label>
+                                    <select id="frequency" name="frequency" class="styled-select">
+                                        <option value="">Select Frequency</option>
+                                        <option value="Once a week">Once a week</option>
+                                        <option value="Twice a week">Twice a week</option>
+                                        <option value="Three times a week">Three times a week</option>
+                                        <option value="Daily">Daily support</option>
+                                        <option value="Exam preparation">Exam preparation intensive</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Form Step 4 -->
+                        <div class="form-step">
+                            <div class="step-header">
+                                <span class="step-tag">Step 4 of 4</span>
+                                <h3><i class="fas fa-clipboard-check"></i> Review & Submit</h3>
+                            </div>
+                            
+                            <div class="review-summary">
+                                <h4><i class="fas fa-file-alt"></i> Application Summary</h4>
+                                <div class="summary-details">
+                                    <p>Please review your information before submitting</p>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="referral">
+                                    <i class="fas fa-users"></i> How did you hear about EDUSQUAD?
+                                </label>
+                                <select id="referral" name="referral" class="styled-select">
+                                    <option value="">Select Source</option>
+                                    <option value="Google Search">Google Search</option>
+                                    <option value="Social Media">Social Media (Facebook, Instagram, etc.)</option>
+                                    <option value="Friend/Family Recommendation">Friend/Family Recommendation</option>
+                                    <option value="School Recommendation">School Recommendation</option>
+                                    <option value="Online Advertisement">Online Advertisement</option>
+                                    <option value="Other">Other</option>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="studentAge">Student's Age</label>
-                                <input type="number" id="studentAge" name="studentAge" min="5" max="25">
+                            
+                            <div class="form-group terms-container">
+                                <div class="terms-box">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">
+                                        I agree to the <a href="#" class="terms-link">terms and conditions</a> and understand that:
+                                        <ul>
+                                            <li>I will receive a free 30-minute assessment session</li>
+                                            <li>My information is secure and confidential</li>
+                                            <li>I can cancel anytime with no long-term commitment</li>
+                                            <li>EDUSQUAD will contact me within 24 hours</li>
+                                        </ul>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="school">Current School</label>
-                            <input type="text" id="school" name="school">
+                        <!-- Form Navigation -->
+                        <div class="form-navigation">
+                            <button type="button" class="btn-outline prev-btn" disabled>
+                                <i class="fas fa-arrow-left"></i> Previous
+                            </button>
+                            <button type="button" class="btn-primary next-btn">
+                                Next <i class="fas fa-arrow-right"></i>
+                            </button>
+                            <button type="submit" class="btn-success submit-btn">
+                                <i class="fas fa-paper-plane"></i> Submit Application
+                            </button>
                         </div>
-                        
-                        <h3>Tutoring Needs</h3>
-                        
-                        <div class="form-group">
-                            <label>Subjects Needed *</label>
-                            <div class="checkbox-group">
-                                <label><input type="checkbox" name="subjects" value="Physics"> Physics</label>
-                                <label><input type="checkbox" name="subjects" value="Mathematics"> Mathematics</label>
-                                <label><input type="checkbox" name="subjects" value="Chemistry"> Chemistry</label>
-                                <label><input type="checkbox" name="subjects" value="English"> English</label>
-                                <label><input type="checkbox" name="subjects" value="Social Studies"> Social Studies</label>
-                                <label><input type="checkbox" name="subjects" value="French"> French</label>
-                                <label><input type="checkbox" name="subjects" value="Biology"> Biology</label>
-                                <label><input type="checkbox" name="subjects" value="Chess"> Chess</label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="goals">Learning Goals & Challenges</label>
-                            <textarea id="goals" name="goals" rows="4" placeholder="Please describe what the student hopes to achieve, any specific challenges, or areas needing improvement..."></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="frequency">Preferred Session Frequency</label>
-                            <select id="frequency" name="frequency">
-                                <option value="">Select Frequency</option>
-                                <option value="Once a week">Once a week</option>
-                                <option value="Twice a week">Twice a week</option>
-                                <option value="Three times a week">Three times a week</option>
-                                <option value="Daily">Daily</option>
-                                <option value="Exam preparation">Exam preparation intensive</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="referral">How did you hear about EDUSQUAD?</label>
-                            <input type="text" id="referral" name="referral">
-                        </div>
-                        
-                        <div class="form-group terms">
-                            <label>
-                                <input type="checkbox" required>
-                                I agree to the <a href="#" class="terms-link">terms and conditions</a> and understand that I will be contacted to complete the enrollment process.
-                            </label>
-                        </div>
-                        
-                        <button type="submit" class="btn-primary submit-btn">
-                            <i class="fas fa-paper-plane"></i> Submit Enrollment Request
-                        </button>
                         
                         <div id="formMessage" class="form-message"></div>
                     </form>
@@ -199,30 +476,22 @@
         </div>
     </section>
 
-    <!-- Next Steps -->
-    <section class="section-dark">
+    <!-- Success Stories -->
+    <section class="success-section">
         <div class="container">
-            <h2 class="section-title">What Happens After Enrollment?</h2>
-            <div class="steps-grid">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Form Submission</h3>
-                    <p>You'll receive a confirmation email and we'll review your application.</p>
+            <h2 class="section-title">Success Stories Begin Here</h2>
+            <div class="success-grid">
+                <div class="success-card">
+                    <div class="success-quote">"My son's math grade improved from C to A in 3 months!"</div>
+                    <div class="success-author">- Parent, Toronto</div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Free Assessment</h3>
-                    <p>We'll schedule a 30-minute free assessment session with your child.</p>
+                <div class="success-card">
+                    <div class="success-quote">"The personalized attention made all the difference."</div>
+                    <div class="success-author">- Parent, Lagos</div>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Personalized Plan</h3>
-                    <p>We create a customized learning plan based on assessment results.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Start Learning</h3>
-                    <p>Begin sessions with your matched tutor at your preferred schedule.</p>
+                <div class="success-card">
+                    <div class="success-quote">"Flexible scheduling saved us as working parents."</div>
+                    <div class="success-author">- Parent, London</div>
                 </div>
             </div>
         </div>
@@ -236,11 +505,12 @@
                     <img src="images/logo.png" alt="EDUSQUAD Logo" height="40">
                     <h3>EDUSQUAD</h3>
                 </div>
-                <p>Questions about enrollment? Contact us directly:</p>
-                <ul class="contact-info">
-                    <li><i class="fas fa-envelope"></i> enroll.edusquad@gmail.com</li>
-                    <li><i class="fas fa-phone"></i> +234 913 202 4610</li>
-                </ul>
+                <p class="footer-tagline">Transforming education one student at a time.</p>
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> enroll.edusquad@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +234 913 202 4610</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 8AM-8PM (All Time Zones)</p>
+                </div>
             </div>
             
             <div class="footer-section">
@@ -253,55 +523,253 @@
                     <li><a href="testimonials.html">Testimonials</a></li>
                 </ul>
             </div>
+            
+            <div class="footer-section">
+                <h4>Need Help?</h4>
+                <ul>
+                    <li><a href="mailto:enroll.edusquad@gmail.com">Email Support</a></li>
+                    <li><a href="tel:+2349132024610">Call Now</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; <span id="current-year"></span> EDUSQUAD Educational Consult. All rights reserved.</p>
+            <p>&copy; <span id="current-year"></span> EDUSQUAD Educational Consult. All rights reserved. | Founder: Soyinka A.S.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <!-- Add this JavaScript for the enhanced form -->
     <script>
-        // Form submission handling
-        document.getElementById('enrollmentForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
+        // Enhanced enrollment form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('enrollmentForm');
+            const steps = document.querySelectorAll('.form-step');
+            const nextBtns = document.querySelectorAll('.next-btn');
+            const prevBtns = document.querySelectorAll('.prev-btn');
+            const progressFill = document.querySelector('.progress-fill');
+            let currentStep = 0;
             
-            const form = e.target;
-            const submitBtn = form.querySelector('.submit-btn');
-            const messageDiv = document.getElementById('formMessage');
+            // Character counter for textarea
+            const textarea = document.getElementById('goals');
+            const charCount = document.querySelector('.char-count');
             
-            // Disable button and show loading
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            if (textarea && charCount) {
+                textarea.addEventListener('input', function() {
+                    const length = this.value.length;
+                    charCount.textContent = `${length}/500 characters`;
+                    charCount.style.color = length > 450 ? '#e74c3c' : '#666';
+                });
+            }
             
-            try {
-                const formData = new FormData(form);
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+            // Update progress bar
+            function updateProgress() {
+                const percentage = ((currentStep + 1) / steps.length) * 100;
+                progressFill.style.width = `${percentage}%`;
+                
+                // Update progress labels
+                const labels = document.querySelectorAll('.progress-labels span');
+                labels.forEach((label, index) => {
+                    label.classList.toggle('active', index === currentStep);
+                });
+            }
+            
+            // Show specific step
+            function showStep(stepIndex) {
+                steps.forEach((step, index) => {
+                    step.classList.toggle('active', index === stepIndex);
                 });
                 
-                if (response.ok) {
-                    // Success
-                    messageDiv.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Enrollment submitted successfully! We will contact you within 24 hours.</div>';
-                    form.reset();
-                    
-                    // Also send SMS notification (simulated - you'd need a proper SMS API)
-                    console.log('SMS would be sent to: +2349132024610');
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                messageDiv.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-circle"></i> There was an error submitting the form. Please try again or contact us directly.</div>';
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Enrollment Request';
+                // Update navigation buttons
+                const prevBtn = document.querySelector('.prev-btn');
+                const nextBtn = document.querySelector('.next-btn');
+                const submitBtn = document.querySelector('.submit-btn');
                 
-                // Scroll to message
-                messageDiv.scrollIntoView({ behavior: 'smooth' });
+                if (stepIndex === 0) {
+                    prevBtn.disabled = true;
+                    nextBtn.style.display = 'inline-block';
+                    submitBtn.style.display = 'none';
+                } else if (stepIndex === steps.length - 1) {
+                    prevBtn.disabled = false;
+                    nextBtn.style.display = 'none';
+                    submitBtn.style.display = 'inline-block';
+                    updateSummary();
+                } else {
+                    prevBtn.disabled = false;
+                    nextBtn.style.display = 'inline-block';
+                    submitBtn.style.display = 'none';
+                }
+                
+                currentStep = stepIndex;
+                updateProgress();
             }
+            
+            // Update summary in last step
+            function updateSummary() {
+                const summaryDiv = document.querySelector('.summary-details');
+                if (!summaryDiv) return;
+                
+                const parentName = document.getElementById('parentName').value || 'Not provided';
+                const studentName = document.getElementById('studentName').value || 'Not provided';
+                const gradeLevel = document.getElementById('gradeLevel').value || 'Not provided';
+                const country = document.getElementById('country').value || 'Not provided';
+                
+                summaryDiv.innerHTML = `
+                    <div class="summary-item">
+                        <strong>Parent Name:</strong> ${parentName}
+                    </div>
+                    <div class="summary-item">
+                        <strong>Student Name:</strong> ${studentName}
+                    </div>
+                    <div class="summary-item">
+                        <strong>Grade Level:</strong> ${gradeLevel}
+                    </div>
+                    <div class="summary-item">
+                        <strong>Country:</strong> ${country}
+                    </div>
+                    <div class="summary-item">
+                        <strong>Next Step:</strong> We'll contact you within 24 hours to schedule your free assessment.
+                    </div>
+                `;
+            }
+            
+            // Next button click
+            nextBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Validate current step before proceeding
+                    const currentStepEl = steps[currentStep];
+                    const inputs = currentStepEl.querySelectorAll('[required]');
+                    let isValid = true;
+                    
+                    inputs.forEach(input => {
+                        if (!input.value.trim()) {
+                            isValid = false;
+                            input.classList.add('error');
+                        } else {
+                            input.classList.remove('error');
+                        }
+                    });
+                    
+                    if (isValid && currentStep < steps.length - 1) {
+                        showStep(currentStep + 1);
+                    }
+                });
+            });
+            
+            // Previous button click
+            prevBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (currentStep > 0) {
+                        showStep(currentStep - 1);
+                    }
+                });
+            });
+            
+            // Subject selection styling
+            const subjectCheckboxes = document.querySelectorAll('.subject-option input[type="checkbox"]');
+            subjectCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const label = this.nextElementSibling;
+                    if (this.checked) {
+                        label.classList.add('selected');
+                    } else {
+                        label.classList.remove('selected');
+                    }
+                });
+            });
+            
+            // Form submission
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = form.querySelector('.submit-btn');
+                const messageDiv = document.getElementById('formMessage');
+                
+                // Check at least one subject is selected
+                const selectedSubjects = form.querySelectorAll('input[name="subjects"]:checked');
+                if (selectedSubjects.length === 0) {
+                    messageDiv.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-circle"></i> Please select at least one subject.</div>';
+                    showStep(2); // Go to subjects step
+                    return;
+                }
+                
+                // Disable button and show loading
+                const originalText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                
+                try {
+                    const formData = new FormData(form);
+                    
+                    // Log form data (for debugging)
+                    console.log('Form submission data:', Object.fromEntries(formData));
+                    
+                    // Send to Formspree
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Success
+                        messageDiv.innerHTML = `
+                            <div class="success-message">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Application Submitted Successfully!</h4>
+                                    <p>✅ We've received your enrollment request</p>
+                                    <p>✅ Expect a call/email within 24 hours</p>
+                                    <p>✅ Check your email for confirmation</p>
+                                    <p><strong>Next:</strong> Free 30-minute assessment session</p>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // Clear form
+                        form.reset();
+                        
+                        // Reset subject selections
+                        document.querySelectorAll('.subject-label.selected').forEach(label => {
+                            label.classList.remove('selected');
+                        });
+                        
+                        // Show success animation
+                        const successSection = document.querySelector('.success-section');
+                        if (successSection) {
+                            successSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                        
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Form error:', error);
+                    messageDiv.innerHTML = `
+                        <div class="error-message">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <div>
+                                <h4>Submission Error</h4>
+                                <p>There was an issue submitting your form. Please try again or contact us directly:</p>
+                                <p><i class="fas fa-phone"></i> +234 913 202 4610</p>
+                                <p><i class="fas fa-envelope"></i> enroll.edusquad@gmail.com</p>
+                            </div>
+                        </div>
+                    `;
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalText;
+                    
+                    // Scroll to message
+                    messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+            
+            // Initialize
+            showStep(0);
         });
     </script>
 </body>
