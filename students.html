@@ -1,1 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSquad - Student Directory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 1.5rem;
+            background: none;
+            -webkit-text-fill-color: initial;
+            color: #ffd700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Stats Cards */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            text-align: center;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card.canada { border-color: #ff4b4b; }
+        .stat-card.uk { border-color: #4169e1; }
+        .stat-card.usa { border-color: #3cb371; }
+        .stat-card.chess { border-color: #ffd700; }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Filter Buttons */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .filter-btn.all {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .filter-btn.canada {
+            background: #ff4b4b;
+            color: white;
+        }
+
+        .filter-btn.uk {
+            background: #4169e1;
+            color: white;
+        }
+
+        .filter-btn.usa {
+            background: #3cb371;
+            color: white;
+        }
+
+        .filter-btn.chess {
+            background: #ffd700;
+            color: #333;
+        }
+
+        /* Search Bar */
+        .search-container {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(135deg, #667eea, #764ba2) border-box;
+        }
+
+        .search-box:focus {
+            outline: none;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Student Table */
+        .table-container {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow-x: auto;
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            font-weight: 600;
+            text-align: left;
+            position: sticky;
+            top: 0;
+        }
+
+        th:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        th:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        tr:hover {
+            background: linear-gradient(135deg, #f5f7ff, #f3e8ff);
+        }
+
+        .student-name {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .student-name.chess {
+            color: #b8860b;
+            font-weight: 700;
+        }
+
+        .country-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .country-badge.canada {
+            background: #fff0f0;
+            color: #c00;
+        }
+
+        .country-badge.uk {
+            background: #e6f0ff;
+            color: #4169e1;
+        }
+
+        .country-badge.usa {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .grade-badge {
+            background: #e0e0e0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .subjects-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .subject-tag {
+            background: #f0f0f0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .subject-tag.chess {
+            background: #ffd700;
+            color: #333;
+            font-weight: 700;
+        }
+
+        /* Chess Highlight Section */
+        .chess-section {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .chess-section h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chess-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .chess-card {
+            background: rgba(255,255,255,0.9);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .chess-card:hover {
+            transform: scale(1.05);
+        }
+
+        .chess-card h3 {
+            color: #333;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chess-card .country {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chess-card .grade {
+            background: #ffd700;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            EduSquad <span>🎓</span>
+        </div>
+        <div class="nav-links">
+            <a href="#">Dashboard</a>
+            <a href="#" class="active">Students</a>
+            <a href="#">Classes</a>
+            <a href="#">Schedule</a>
+            <a href="#">Reports</a>
+            <a href="#">Settings</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>🎓 Student Directory</h1>
+        <p>Meet our amazing squad of learners from around the world!</p>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-container">
+        <div class="stat-card canada">
+            <div class="stat-icon">🇨🇦</div>
+            <div class="stat-number">19</div>
+            <div class="stat-label">Canadian Students</div>
+        </div>
+        <div class="stat-card uk">
+            <div class="stat-icon">🇬🇧</div>
+            <div class="stat-number">8</div>
+            <div class="stat-label">UK Students</div>
+        </div>
+        <div class="stat-card usa">
+            <div class="stat-icon">🇺🇸</div>
+            <div class="stat-number">4</div>
+            <div class="stat-label">US Students</div>
+        </div>
+        <div class="stat-card chess">
+            <div class="stat-icon">♟️</div>
+            <div class="stat-number">6</div>
+            <div class="stat-label">Chess Club</div>
+        </div>
+    </div>
+
+    <!-- Filters and Search -->
+    <div class="filters">
+        <button class="filter-btn all" onclick="filterStudents('all')">All Students</button>
+        <button class="filter-btn canada" onclick="filterStudents('canada')">🇨🇦 Canada</button>
+        <button class="filter-btn uk" onclick="filterStudents('uk')">🇬🇧 United Kingdom</button>
+        <button class="filter-btn usa" onclick="filterStudents('usa')">🇺🇸 United States</button>
+        <button class="filter-btn chess" onclick="filterStudents('chess')">♟️ Chess Club</button>
+    </div>
+
+    <div class="search-container">
+        <input type="text" class="search-box" placeholder="🔍 Search by name, country, or subject..." onkeyup="searchStudents(this.value)">
+    </div>
+
+    <!-- Main Student Table -->
+    <div class="table-container">
+        <table id="studentTable">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Student Name</th>
+                    <th>Country</th>
+                    <th>Grade</th>
+                    <th>Subjects Enrolled</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Canadian Students -->
+                <tr data-country="canada" data-chess="true">
+                    <td>1</td>
+                    <td class="student-name chess">Nuvie</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 11</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Physics</span>
+                        <span class="subject-tag chess">♟️ Chess</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="true">
+                    <td>2</td>
+                    <td class="student-name chess">Duvie</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 7</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">ELA</span>
+                        <span class="subject-tag">Science</span>
+                        <span class="subject-tag chess">♟️ Chess</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="true">
+                    <td>3</td>
+                    <td class="student-name chess">Terna</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 6</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">ELA</span>
+                        <span class="subject-tag chess">♟️ Chess</span>
+                        <span class="subject-tag">Science</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="true">
+                    <td>4</td>
+                    <td class="student-name chess">Desire</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 4</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">ELA</span>
+                        <span class="subject-tag chess">♟️ Chess</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="true">
+                    <td>5</td>
+                    <td class="student-name chess">Orire</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 7</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag chess">♟️ Chess</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="true">
+                    <td>6</td>
+                    <td class="student-name chess">Zuriel</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 4</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag chess">♟️ Chess</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>7</td>
+                    <td class="student-name">Ifeoma</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 7</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">ELA</span>
+                        <span class="subject-tag">Science</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>8</td>
+                    <td class="student-name">Ify</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 9</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Science</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>9</td>
+                    <td class="student-name">Ordame</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 8</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Science</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>10</td>
+                    <td class="student-name">Orodje</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 7</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">ELA</span>
+                        <span class="subject-tag">Science</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>11</td>
+                    <td class="student-name">Elbe</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 9</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">English</span>
+                        <span class="subject-tag">Science</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>12</td>
+                    <td class="student-name">Vickky</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 8</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">ELA</span>
+                        <span class="subject-tag">Science</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>13</td>
+                    <td class="student-name">Jairus</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 1</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">English</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>14</td>
+                    <td class="student-name">Shannon</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 5</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">ELA</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>15</td>
+                    <td class="student-name">Zion</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 5</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">ELA</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>16</td>
+                    <td class="student-name">Denzel</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 1</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">ELA</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>17</td>
+                    <td class="student-name">Eleora</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 4</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">ELA</span>
+                        <span class="subject-tag">Mathematics</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>18</td>
+                    <td class="student-name">Aelina</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 2</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">English</span>
+                    </td>
+                </tr>
+                <tr data-country="canada" data-chess="false">
+                    <td>19</td>
+                    <td class="student-name">Harry</td>
+                    <td><span class="country-badge canada">🇨🇦 Canada</span></td>
+                    <td><span class="grade-badge">Grade 6</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Science</span>
+                    </td>
+                </tr>
+                
+                <!-- UK Students -->
+                <tr data-country="uk" data-chess="false">
+                    <td>20</td>
+                    <td class="student-name">Gabriella</td>
+                    <td><span class="country-badge uk">🇬🇧 United Kingdom</span></td>
+                    <td><span class="grade-badge">Grade 10 (GCSE)</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Physics</span>
+                        <span class="subject-tag">Chemistry</span>
+                        <span class="subject-tag">Biology</span>
+                    </td>
+                </tr>
+                <tr data-country="uk" data-chess="false">
+                    <td>21</td>
+                    <td class="student-name">Nathaniel</td>
+                    <td><span class="country-badge uk">🇬🇧 United Kingdom</span></td>
+                    <td><span class="grade-badge">Grade 10 (GCSE)</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Physics</span>
+                        <span class="subject-tag">Chemistry</span>
+                        <span class="subject-tag">Biology</span>
+                    </td>
+                </tr>
+                <tr data-country="uk" data-chess="false">
+                    <td>22</td>
+                    <td class="student-name">Emmanuella</td>
+                    <td><span class="country-badge uk">🇬🇧 United Kingdom</span></td>
+                    <td><span class="grade-badge">S2</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                    </td>
+                </tr>
+                <tr data-country="uk" data-chess="false">
+                    <td>23</td>
+                    <td class="student-name">Korewa</td>
+                    <td><span class="country-badge uk">🇬🇧 United Kingdom</span></td>
+                    <td><span class="grade-badge">S2</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">English</span>
+                        <span class="subject-tag">Science</span>
+                    </td>
+                </tr>
+                <tr data-country="uk" data-chess="false">
+                    <td>24</td>
+                    <td class="student-name">Toyosi</td>
+                    <td><span class="country-badge uk">🇬🇧 United Kingdom</span></td>
+                    <td><span class="grade-badge">S5 (SQA Higher)</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Chemistry</span>
+                    </td>
+                </tr>
+                <tr data-country="uk" data-chess="false">
+                    <td>25</td>
+                    <td class="student-name">Arike</td>
+                    <td><span class="country-badge uk">🇬🇧 United Kingdom</span></td>
+                    <td><span class="grade-badge">S5 (SQA Higher)</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Physics</span>
+                    </td>
+                </tr>
+                <tr data-country="uk" data-chess="false">
+                    <td>26</td>
+                    <td class="student-name">Abimbola</td>
+                    <td><span class="country-badge uk">🇬🇧 United Kingdom</span></td>
+                    <td><span class="grade-badge">Grade 10 (GCSE)</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Physics</span>
+                        <span class="subject-tag">Chemistry</span>
+                        <span class="subject-tag">Biology</span>
+                    </td>
+                </tr>
+                <tr data-country="uk" data-chess="false">
+                    <td>27</td>
+                    <td class="student-name">Isabel</td>
+                    <td><span class="country-badge uk">🇬🇧 United Kingdom</span></td>
+                    <td><span class="grade-badge">Grade 10 (GCSE)</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Physics</span>
+                        <span class="subject-tag">Chemistry</span>
+                        <span class="subject-tag">Biology</span>
+                    </td>
+                </tr>
+
+                <!-- US Students -->
+                <tr data-country="usa" data-chess="false">
+                    <td>28</td>
+                    <td class="student-name">Nicole</td>
+                    <td><span class="country-badge usa">🇺🇸 United States</span></td>
+                    <td><span class="grade-badge">College</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Chemistry</span>
+                    </td>
+                </tr>
+                <tr data-country="usa" data-chess="false">
+                    <td>29</td>
+                    <td class="student-name">Naomi</td>
+                    <td><span class="country-badge usa">🇺🇸 United States</span></td>
+                    <td><span class="grade-badge">Grade 11</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Chemistry</span>
+                        <span class="subject-tag">Mathematics</span>
+                    </td>
+                </tr>
+                <tr data-country="usa" data-chess="false">
+                    <td>30</td>
+                    <td class="student-name">Nimali</td>
+                    <td><span class="country-badge usa">🇺🇸 United States</span></td>
+                    <td><span class="grade-badge">Grade 9</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                    </td>
+                </tr>
+                <tr data-country="usa" data-chess="false">
+                    <td>31</td>
+                    <td class="student-name">Imani</td>
+                    <td><span class="country-badge usa">🇺🇸 United States</span></td>
+                    <td><span class="grade-badge">Grade 10</span></td>
+                    <td class="subjects-list">
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Biology</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Chess Club Highlight Section -->
+    <div class="chess-section">
+        <h2>♟️ EduSquad Chess Club Members</h2>
+        <div class="chess-grid">
+            <div class="chess-card">
+                <h3>Nuvie</h3>
+                <div class="country">🇨🇦 Grade 11</div>
+                <span class="grade">Mathematics, Physics, Chess</span>
+            </div>
+            <div class="chess-card">
+                <h3>Duvie</h3>
+                <div class="country">🇨🇦 Grade 7</div>
+                <span class="grade">Mathematics, ELA, Science, Chess</span>
+            </div>
+            <div class="chess-card">
+                <h3>Terna</h3>
+                <div class="country">🇨🇦 Grade 6</div>
+                <span class="grade">Mathematics, ELA, Chess, Science</span>
+            </div>
+            <div class="chess-card">
+                <h3>Desire</h3>
+                <div class="country">🇨🇦 Grade 4</div>
+                <span class="grade">Mathematics, ELA, Chess</span>
+            </div>
+            <div class="chess-card">
+                <h3>Orire</h3>
+                <div class="country">🇨🇦 Grade 7</div>
+                <span class="grade">Mathematics, Chess</span>
+            </div>
+            <div class="chess-card">
+                <h3>Zuriel</h3>
+                <div class="country">🇨🇦 Grade 4</div>
+                <span class="grade">Mathematics, Chess</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2026 EduSquad - Making Learning Fun! 🎓</p>
+    </div>
+
+    <script>
+        function filterStudents(country) {
+            const rows = document.querySelectorAll('#studentTable tbody tr');
+            
+            rows.forEach(row => {
+                if (country === 'all') {
+                    row.style.display = '';
+                } else if (country === 'chess') {
+                    if (row.getAttribute('data-chess') === 'true') {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                } else {
+                    if (row.getAttribute('data-country') === country) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        function searchStudents(query) {
+            const rows = document.querySelectorAll('#studentTable tbody tr');
+            const searchTerm = query.toLowerCase();
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                if (text.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Highlight active filter button
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.style.opacity = '0.7');
+                this.style.opacity = '1';
+            });
+        });
+    </script>
+</body>
+</html>
