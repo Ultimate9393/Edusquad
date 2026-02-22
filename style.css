@@ -3133,3 +3133,376 @@ input.error, select.error {
         padding: 1.5rem;
     }
 }
+/* ===== STUDENTS PAGE STYLES ===== */
+
+/* Students Header */
+.students-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: 20px;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.students-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.students-header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Stats Cards */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    text-align: center;
+    border: 3px solid transparent;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.stat-card.canada { border-color: #ff4b4b; }
+.stat-card.uk { border-color: #4169e1; }
+.stat-card.usa { border-color: #3cb371; }
+.stat-card.chess { border-color: #ffd700; }
+
+.stat-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.2;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Filter Buttons */
+.filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    justify-content: center;
+    max-width: 1200px;
+    padding: 0 2rem;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.filter-btn.all {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.filter-btn.canada {
+    background: #ff4b4b;
+    color: white;
+}
+
+.filter-btn.uk {
+    background: #4169e1;
+    color: white;
+}
+
+.filter-btn.usa {
+    background: #3cb371;
+    color: white;
+}
+
+.filter-btn.chess {
+    background: #ffd700;
+    color: #333;
+}
+
+/* Search Bar */
+.search-container {
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    padding: 0 2rem;
+}
+
+.search-box {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Student Table */
+.table-container {
+    background: white;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    overflow-x: auto;
+    margin: 2rem auto;
+    max-width: 1400px;
+}
+
+#studentTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#studentTable th {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1rem;
+    font-weight: 600;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#studentTable th:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+#studentTable th:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+#studentTable td {
+    padding: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+    font-family: 'Poppins', sans-serif;
+}
+
+#studentTable tr:hover {
+    background: linear-gradient(135deg, #f5f7ff, #f3e8ff);
+}
+
+.student-name {
+    font-weight: 600;
+    color: #333;
+}
+
+.student-name.chess {
+    color: #b8860b;
+    font-weight: 700;
+}
+
+/* Country Badges */
+.country-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.country-badge.canada {
+    background: #fff0f0;
+    color: #c00;
+}
+
+.country-badge.uk {
+    background: #e6f0ff;
+    color: #4169e1;
+}
+
+.country-badge.usa {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+/* Grade Badge */
+.grade-badge {
+    background: #e0e0e0;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333;
+    display: inline-block;
+}
+
+/* Subjects List */
+.subjects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.subject-tag {
+    background: #f0f0f0;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.subject-tag.chess {
+    background: #ffd700;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Chess Section */
+.chess-section {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.chess-section h2 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chess-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.chess-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.chess-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.chess-card h3 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chess-card .country {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.chess-card .grade {
+    background: #ffd700;
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* Responsive Design for Students Page */
+@media (max-width: 768px) {
+    .students-header h1 {
+        font-size: 2rem;
+    }
+    
+    .students-header {
+        padding: 2rem 1rem;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-btn {
+        width: 100%;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .chess-section h2 {
+        font-size: 2rem;
+    }
+    
+    .chess-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #studentTable {
+        font-size: 0.9rem;
+    }
+    
+    #studentTable th,
+    #studentTable td {
+        padding: 0.75rem;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
